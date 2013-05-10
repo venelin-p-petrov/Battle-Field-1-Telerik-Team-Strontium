@@ -9,6 +9,7 @@ namespace BattleField
     {
         //tuk e magiqta!!!!
         //we got the POWER
+        // 
         public static void NapylniMasiva(int n, int rows, int cols, String[,] workField)
         {
             int count = 0;
