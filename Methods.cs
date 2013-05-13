@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BattleField
 {
-    class Methods
+    public class Methods
     {
         public static void AddBombs(String[,] workField)
         {
@@ -54,8 +54,8 @@ namespace BattleField
                 for (int j = 0; j < cols; j++)
                 {
                     Console.Write(workField[i, j]);
-                    Console.WriteLine();
                 }
+                Console.WriteLine();
             }
         }
 
