@@ -65,7 +65,7 @@ namespace BattleField
             Methods.AddBombs(gameField);
             Methods.PrintArray(gameField);
             int countPlayed = 0;
-            Methods.PlayerTurn(rows, cols, gameField, countPlayed);
+            Methods.PlayerTurn(gameField, countPlayed);
 
         }
 
