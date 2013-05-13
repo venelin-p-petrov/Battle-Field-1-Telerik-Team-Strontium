@@ -7,11 +7,10 @@ namespace BattleField
 {
     class Methods
     {
-        //tuk e magiqta!!!!
-        //we got the POWER
-        // 
-        public static void NapylniMasiva(int n, int rows, int cols, String[,] workField)
+        public static void AddBombs(int n, int rows, int cols, String[,] workField)
         {
+            // Ivo - n, rows, cols have no purpose in this method!
+
             int count = 0;
             Random randomNumber = new Random();
             int randomPlaceI;
@@ -111,14 +110,14 @@ namespace BattleField
             switch (hitCoordinate)
             {
                 case 1: HitOne(x, y, rows, cols, workField); break;
-                case 2: PrasniDvama(x, y, rows, cols, workField); break;
+                case 2: HitTwo(x, y, rows, cols, workField); break;
                 case 3: HitThree(x, y, rows, cols, workField); break;
                 case 4: HitFour(x, y, rows, cols, workField); break;
                 case 5: HitFive(x, y, rows, cols, workField); break;
             }
 
             PrintArray(rows, cols, workField);
-            if (!Krai(rows, cols, workField))
+            if (!IsGameOver(rows, cols, workField))
             {
                 vremeEIgrachaDaDeistva(n, rows, cols, workField, countPlayed);
             }
@@ -153,7 +152,7 @@ namespace BattleField
 
         }
 
-        public static void PrasniDvama(int x, int y, int rows, int cols, String[,] workField)
+        public static void HitTwo(int x, int y, int rows, int cols, String[,] workField)
         {
             workField[x, y] = "X";
             HitOne(x, y, rows, cols, workField);
@@ -179,7 +178,7 @@ namespace BattleField
 
         public static void HitThree(int x, int y, int rows, int cols, String[,] workField)
         {
-            PrasniDvama(x, y, rows, cols, workField);
+            HitTwo(x, y, rows, cols, workField);
             if (x - 2 > 1)
             {
                 workField[x - 2, y] = "X";
@@ -332,7 +331,7 @@ namespace BattleField
             }
         }
 
-        public static bool Krai(int rows, int cols, String[,] Полето)
+        public static bool IsGameOver(int rows, int cols, String[,] Полето)
         {
             bool край = true;
             for (int i = 2; i < rows; i++)

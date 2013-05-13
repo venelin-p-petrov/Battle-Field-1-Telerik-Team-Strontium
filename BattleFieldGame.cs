@@ -6,7 +6,8 @@ using System.Text;
 namespace BattleField
 {
     class BattleFieldGame
-    {   static void Main(string[] argumenti)
+    {   
+        static void Main(string[] argumenti)
         {   Console.Write("Welcome to \"Battle Field game.\" Enter battle field size: n = ");         
             int n = Convert.ToInt32(Console.ReadLine());
             while (n < 1 || n > 10)
@@ -69,7 +70,7 @@ namespace BattleField
 
             }
 
-            Methods.NapylniMasiva(n, rows, cols, field);
+            Methods.AddBombs(n, rows, cols, field);
             Methods.PrintArray(rows, cols, field);
             int countPlayed = 0;
             Methods.vremeEIgrachaDaDeistva(n, rows, cols, field, countPlayed);
