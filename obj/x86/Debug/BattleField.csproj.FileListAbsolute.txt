@@ -1,0 +1,5 @@
+C:\Users\HAXVY\Desktop\Telerik\ACADEMY\C#\KPK\Teamwork\Battle-Field-1-Telerik-Team-Strontium\bin\Debug\Bombi.exe
+C:\Users\HAXVY\Desktop\Telerik\ACADEMY\C#\KPK\Teamwork\Battle-Field-1-Telerik-Team-Strontium\bin\Debug\Bombi.pdb
+C:\Users\HAXVY\Desktop\Telerik\ACADEMY\C#\KPK\Teamwork\Battle-Field-1-Telerik-Team-Strontium\obj\x86\Debug\BattleField.csprojResolveAssemblyReference.cache
+C:\Users\HAXVY\Desktop\Telerik\ACADEMY\C#\KPK\Teamwork\Battle-Field-1-Telerik-Team-Strontium\obj\x86\Debug\Bombi.exe
+C:\Users\HAXVY\Desktop\Telerik\ACADEMY\C#\KPK\Teamwork\Battle-Field-1-Telerik-Team-Strontium\obj\x86\Debug\Bombi.pdb
