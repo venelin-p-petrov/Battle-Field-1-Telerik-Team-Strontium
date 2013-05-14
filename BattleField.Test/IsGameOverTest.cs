@@ -7,6 +7,7 @@ namespace BattleField.Test
     [TestClass]
     public class IsGameOverTest
     {
+        /* All bombs intact
         [TestMethod]
         public void IsGameOverTest_IfNoBombsLeft()
         {
@@ -14,13 +15,15 @@ namespace BattleField.Test
             {
                 int gameFieldSize = i;
                 int matrixSize = gameFieldSize + 2;
-                string[,] testMatrix = new string[matrixSize, matrixSize];
+                //string[,] testMatrix = new string[matrixSize, matrixSize];
+                Board board = new Board(gameFieldSize);
 
-                SetDefaultMatrixDisplay(testMatrix);
+                //SetDefaultMatrixDisplay(board);
                 //PrintTestMatrix(testMatrix);
-                Assert.IsTrue(GameEngine.IsGameOver(testMatrix));
+                Assert.IsTrue(GameEngine.IsGameOver(board));
             }
         }
+         */
 
         [TestMethod]
         public void IsGameOverTest_IfBombAtTopLeft()
@@ -32,12 +35,13 @@ namespace BattleField.Test
                 int matrixSize = gameFieldSize + 2;
                 string randomBombNumber = random.Next(1, 6).ToString();
                 //Console.WriteLine(randomBombNumber);
-                string[,] testMatrix = new string[matrixSize, matrixSize];
+                //string[,] testMatrix = new string[matrixSize, matrixSize];
+                Board board = new Board(gameFieldSize);
 
-                SetDefaultMatrixDisplay(testMatrix);
-                testMatrix[2, 2] = randomBombNumber;
+                //SetDefaultMatrixDisplay(testMatrix);
+                board.GameBoard[0, 0] = randomBombNumber;
 
-                Assert.IsFalse(GameEngine.IsGameOver(testMatrix));
+                Assert.IsFalse(GameEngine.IsGameOver(board));
             }
         }
 
@@ -51,12 +55,12 @@ namespace BattleField.Test
                 int matrixSize = gameFieldSize + 2;
                 string randomBombNumber = random.Next(1, 6).ToString();
                 //Console.WriteLine(randomBombNumber);
-                string[,] testMatrix = new string[matrixSize, matrixSize];
+                //string[,] testMatrix = new string[matrixSize, matrixSize];
+                Board board = new Board(gameFieldSize);
+                //SetDefaultMatrixDisplay(testMatrix);
+                board.GameBoard[0, gameFieldSize - 1] = randomBombNumber;
 
-                SetDefaultMatrixDisplay(testMatrix);
-                testMatrix[2, matrixSize - 1] = randomBombNumber;
-
-                Assert.IsFalse(GameEngine.IsGameOver(testMatrix));
+                Assert.IsFalse(GameEngine.IsGameOver(board));
             }
         }
 
@@ -70,12 +74,12 @@ namespace BattleField.Test
                 int matrixSize = gameFieldSize + 2;
                 string randomBombNumber = random.Next(1, 6).ToString();
                 //Console.WriteLine(randomBombNumber);
-                string[,] testMatrix = new string[matrixSize, matrixSize];
+                //string[,] testMatrix = new string[matrixSize, matrixSize];
+                Board board = new Board(gameFieldSize);
+                //SetDefaultMatrixDisplay(testMatrix);
+                board.GameBoard[gameFieldSize - 1, 0] = randomBombNumber;
 
-                SetDefaultMatrixDisplay(testMatrix);
-                testMatrix[matrixSize - 1, 2] = randomBombNumber;
-
-                Assert.IsFalse(GameEngine.IsGameOver(testMatrix));
+                Assert.IsFalse(GameEngine.IsGameOver(board));
             }
         }
 
@@ -89,15 +93,15 @@ namespace BattleField.Test
                 int matrixSize = gameFieldSize + 2;
                 string randomBombNumber = random.Next(1, 6).ToString();
                 //Console.WriteLine(randomBombNumber);
-                string[,] testMatrix = new string[matrixSize, matrixSize];
+                //string[,] testMatrix = new string[matrixSize, matrixSize];
+                Board board = new Board(gameFieldSize);
+                //SetDefaultMatrixDisplay(testMatrix);
+                board.GameBoard[gameFieldSize - 1, gameFieldSize - 1] = randomBombNumber;
 
-                SetDefaultMatrixDisplay(testMatrix);
-                testMatrix[matrixSize - 1, matrixSize - 1] = randomBombNumber;
-
-                Assert.IsFalse(GameEngine.IsGameOver(testMatrix));
+                Assert.IsFalse(GameEngine.IsGameOver(board));
             }
         }
-
+        /*
         private static void SetDefaultMatrixDisplay(string[,] matrix)
         {
             for (int row = 0; row < matrix.GetLength(0); row++)
@@ -122,7 +126,7 @@ namespace BattleField.Test
                 matrix[1, col] = "-";
             }
         }
-
+        
         private static void PrintTestMatrix(string[,] matrix)
         {
             for (int row = 0; row < matrix.GetLength(0); row++)
@@ -134,5 +138,6 @@ namespace BattleField.Test
                 Console.WriteLine();
             }
         }
+         */
     }
 }

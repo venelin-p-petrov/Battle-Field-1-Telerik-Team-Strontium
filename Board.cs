@@ -19,7 +19,7 @@ namespace BattleField
             protected set;
         }
 
-        public char[,] GameBoard
+        public string[,] GameBoard
         {
             get;
             protected set;
@@ -32,15 +32,14 @@ namespace BattleField
                 throw new ArgumentException("Invalid board size!");
             }
 
-            this.GameBoard = new char[gameBoardSize, gameBoardSize];
             this.Rows = gameBoardSize;
             this.Cols = gameBoardSize;
             this.GameBoard = GenerateGameBoard();
         }
 
-        private char[,] GenerateGameBoard()
+        private string[,] GenerateGameBoard()
         {
-            char[,] gameBoard = new char[this.Rows, this.Cols];
+            string[,] gameBoard = new string[this.Rows, this.Cols];
 
             AddBombs(gameBoard);
 
@@ -48,9 +47,9 @@ namespace BattleField
             {
                 for (int col = 0; col < this.Cols; col++)
                 {
-                    if (gameBoard[row, col] == '\0')
+                    if (gameBoard[row, col] == null)
                     {
-                        gameBoard[row, col] = '-';
+                        gameBoard[row, col] = "-";
                     }
                 }
             }
@@ -58,7 +57,7 @@ namespace BattleField
             return gameBoard;
         }
 
-        private void AddBombs(char[,] gameBoard)
+        private void AddBombs(string[,] gameBoard)
         {
             int gameBoardSize = this.Rows;
             int count = 0;
@@ -75,9 +74,9 @@ namespace BattleField
                 {
                     randomPlaceI = randomNumber.Next(0, gameBoardSize);
                     randomPlaceJ = randomNumber.Next(0, gameBoardSize);
-                } while (gameBoard[randomPlaceI, randomPlaceJ] != '\0');
+                } while (gameBoard[randomPlaceI, randomPlaceJ] != null);
 
-                char randomDigit = Convert.ToChar(48 + randomNumber.Next(1, 6));
+                string randomDigit = Convert.ToString(randomNumber.Next(1, 6));
                 gameBoard[randomPlaceI, randomPlaceJ] = randomDigit;
                 count++;
             }
@@ -100,7 +99,7 @@ namespace BattleField
                         }
                         else
                         {
-                            result.Append(' ');
+                            result.Append(" ");
                         }
                     }
                     else

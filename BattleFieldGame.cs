@@ -16,7 +16,7 @@ namespace BattleField
             Console.WriteLine(board);
             int countPlayed = 0;
             // Venelin - PlayerTurn has to be changed.
-            //GameEngine.PlayerTurn(board, countPlayed);
+            GameEngine.PlayerTurn(board, countPlayed);
         }
     }
 }
