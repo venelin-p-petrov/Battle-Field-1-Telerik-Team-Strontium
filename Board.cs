@@ -5,67 +5,49 @@ using System.Text;
 
 namespace BattleField
 {
-    class Board
+    public class Board
     {
-        private int rows = 0;
-        private int cols = 0;
-        private string[,] gameBoard = new string[1, 1];
-
-        public int Rows 
+        public int Rows
         {
-            get
-            {
-                return this.rows;
-            }
-            protected set
-            {
-                this.rows = value;
-            }        
+            get;
+            protected set;
         }
 
-        public int Cols 
+        public int Cols
         {
-            get
-            {
-                return this.cols;
-            }
-            protected set
-            {
-                this.cols = value;
-            } 
+            get;
+            protected set;
         }
 
-        public string[,] GameBoard 
+        public string[,] GameBoard
         {
-            get 
-            {
-                return this.gameBoard;
-            }
-            protected set 
-            {
-                this.gameBoard = value;
-            } 
+            get;
+            protected set;
         }
 
-        public Board(int rows, int cols) 
+        public Board(int gameBoardSize) 
         {
-            this.Rows = rows;
-            this.Cols = cols;
-            this.GameBoard = CreateGameBoard();
+            if (gameBoardSize < 1 || gameBoardSize > 10)
+            {
+                throw new ArgumentException("Ivalid board size!");
+            }
+            this.Rows = gameBoardSize + 2;
+            this.Cols = (gameBoardSize * 2) + 2;
+            this.GameBoard = this.CreateGameBoard();
         }
 
         private string[,] CreateGameBoard()
         {
-            string[,] gameBoard = new string[rows, cols];
+            string[,] gameBoard = new string[this.Rows, this.Cols];
 
             gameBoard[0, 0] = " ";
             gameBoard[0, 1] = " ";
             gameBoard[1, 0] = " ";
             gameBoard[1, 1] = " ";
 
-            for (int row = 2; row < rows; row++)
+            for (int row = 2; row < this.Rows; row++)
             {
-                for (int col = 2; col < cols; col++)
+                for (int col = 2; col < this.Cols; col++)
                 {
                     if (col % 2 == 0)
                     {
@@ -82,7 +64,8 @@ namespace BattleField
                     {
                         gameBoard[0, col] = " ";
                     }
-                    if (col < cols - 1)
+
+                    if (col < this.Cols - 1)
                     {
                         gameBoard[1, col] = "-";
                     }
@@ -100,7 +83,7 @@ namespace BattleField
                 }
             }
             
-            Methods.AddBombs(gameBoard);
+            GameEngine.AddBombs(gameBoard);
             
             return gameBoard;
         }        

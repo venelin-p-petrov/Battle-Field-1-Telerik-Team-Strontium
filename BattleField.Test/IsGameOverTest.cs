@@ -18,7 +18,7 @@ namespace BattleField.Test
                 
                 SetDefaultMatrixDisplay(testMatrix);
                 //PrintTestMatrix(testMatrix);
-                Assert.IsTrue(Methods.IsGameOver(testMatrix));
+                Assert.IsTrue(GameEngine.IsGameOver(testMatrix));
             }
         }
 
@@ -37,7 +37,7 @@ namespace BattleField.Test
                 SetDefaultMatrixDisplay(testMatrix);
                 testMatrix[2, 2] = randomBombNumber;
 
-                Assert.IsFalse(Methods.IsGameOver(testMatrix));
+                Assert.IsFalse(GameEngine.IsGameOver(testMatrix));
             }
         }
 
@@ -56,7 +56,7 @@ namespace BattleField.Test
                 SetDefaultMatrixDisplay(testMatrix);
                 testMatrix[2, matrixSize - 1] = randomBombNumber;
 
-                Assert.IsFalse(Methods.IsGameOver(testMatrix));
+                Assert.IsFalse(GameEngine.IsGameOver(testMatrix));
             }
         }
 
@@ -75,7 +75,7 @@ namespace BattleField.Test
                 SetDefaultMatrixDisplay(testMatrix);
                 testMatrix[matrixSize - 1, 2] = randomBombNumber;
 
-                Assert.IsFalse(Methods.IsGameOver(testMatrix));
+                Assert.IsFalse(GameEngine.IsGameOver(testMatrix));
             }
         }
 
@@ -94,7 +94,7 @@ namespace BattleField.Test
                 SetDefaultMatrixDisplay(testMatrix);
                 testMatrix[matrixSize - 1, matrixSize - 1] = randomBombNumber;
 
-                Assert.IsFalse(Methods.IsGameOver(testMatrix));
+                Assert.IsFalse(GameEngine.IsGameOver(testMatrix));
             }
         }
 

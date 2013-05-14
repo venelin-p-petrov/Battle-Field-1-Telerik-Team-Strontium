@@ -5,34 +5,15 @@ using System.Text;
 
 namespace BattleField
 {
-    class BattleFieldGame
+    public class BattleFieldGame
     {
-        private static int gameFieldSize = 0;
-
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            ReadInput();
-
-            int rows = gameFieldSize + 2;
-            int cols = gameFieldSize * 2 + 2;
-
-
-            Board gameField = new Board(rows, cols);            
-            Methods.PrintArray(gameField.GameBoard);
+            int gameBoardSize = GameEngine.ReadBoardSize();
+            Board board = new Board(gameBoardSize);
+            GameEngine.PrintBoard(board.GameBoard);
             int countPlayed = 0;
-            Methods.PlayerTurn(gameField.GameBoard, countPlayed);
-        }
-
-        private static void ReadInput()
-        {
-            Console.Write("Welcome to \"Battle Field game.\" Enter battle field size: n = ");
-            gameFieldSize = Convert.ToInt32(Console.ReadLine());
-            while (gameFieldSize < 1 || gameFieldSize > 10)
-            {
-                Console.WriteLine("Enter a number between 1 and 10!");
-                gameFieldSize = Convert.ToInt32(Console.ReadLine());
-            }
+            GameEngine.PlayerTurn(board.GameBoard, countPlayed);
         }
     }
 }
-

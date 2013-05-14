@@ -155,7 +155,7 @@ namespace BattleField.Tests
         [TestMethod]
         public void ValidFieldGenerated()
         {
-            Methods.AddBombs(gameField);
+            GameEngine.AddBombs(gameField);
 
             Assert.IsTrue(IsValidField(gameField));
         }
