@@ -19,73 +19,112 @@ namespace BattleField
             protected set;
         }
 
-        public string[,] GameBoard
+        public char[,] GameBoard
         {
             get;
             protected set;
         }
 
-        public Board(int gameBoardSize) 
+        public Board(int gameBoardSize)
         {
             if (gameBoardSize < 1 || gameBoardSize > 10)
             {
-                throw new ArgumentException("Ivalid board size!");
+                throw new ArgumentException("Invalid board size!");
             }
-            this.Rows = gameBoardSize + 2;
-            this.Cols = (gameBoardSize * 2) + 2;
-            this.GameBoard = this.CreateGameBoard();
+
+            this.GameBoard = new char[gameBoardSize, gameBoardSize];
+            this.Rows = gameBoardSize;
+            this.Cols = gameBoardSize;
+            this.GameBoard = GenerateGameBoard();
         }
 
-        private string[,] CreateGameBoard()
+        private char[,] GenerateGameBoard()
         {
-            string[,] gameBoard = new string[this.Rows, this.Cols];
+            char[,] gameBoard = new char[this.Rows, this.Cols];
 
-            gameBoard[0, 0] = " ";
-            gameBoard[0, 1] = " ";
-            gameBoard[1, 0] = " ";
-            gameBoard[1, 1] = " ";
+            AddBombs(gameBoard);
 
-            for (int row = 2; row < this.Rows; row++)
+            for (int row = 0; row < this.Rows; row++)
             {
-                for (int col = 2; col < this.Cols; col++)
+                for (int col = 0; col < this.Cols; col++)
                 {
-                    if (col % 2 == 0)
+                    if (gameBoard[row, col] == '\0')
                     {
-                        if (col == 2)
-                        {
-                            gameBoard[0, col] = "0";
-                        }
-                        else
-                        {
-                            gameBoard[0, col] = Convert.ToString((col - 2) / 2);
-                        }
-                    }
-                    else
-                    {
-                        gameBoard[0, col] = " ";
-                    }
-
-                    if (col < this.Cols - 1)
-                    {
-                        gameBoard[1, col] = "-";
-                    }
-
-                    gameBoard[row, 0] = Convert.ToString(row - 2);
-                    gameBoard[row, 1] = "|";
-                    if (col % 2 == 0)
-                    {
-                        gameBoard[row, col] = "-";
-                    }
-                    else
-                    {
-                        gameBoard[row, col] = " ";
+                        gameBoard[row, col] = '-';
                     }
                 }
             }
-            
-            GameEngine.AddBombs(gameBoard);
-            
+
             return gameBoard;
-        }        
+        }
+
+        private void AddBombs(char[,] gameBoard)
+        {
+            int gameBoardSize = this.Rows;
+            int count = 0;
+            Random randomNumber = new Random();
+            int randomPlaceI;
+            int randomPlaceJ;
+            int minPercent = Convert.ToInt32(0.15 * (gameBoardSize * gameBoardSize));
+            int maxPercent = Convert.ToInt32(0.30 * (gameBoardSize * gameBoardSize));
+            int countMines = randomNumber.Next(minPercent, maxPercent);
+
+            while (count < countMines)
+            {
+                do
+                {
+                    randomPlaceI = randomNumber.Next(0, gameBoardSize);
+                    randomPlaceJ = randomNumber.Next(0, gameBoardSize);
+                } while (gameBoard[randomPlaceI, randomPlaceJ] != '\0');
+
+                char randomDigit = Convert.ToChar(48 + randomNumber.Next(1, 6));
+                gameBoard[randomPlaceI, randomPlaceJ] = randomDigit;
+                count++;
+            }
+        }
+
+        public override string ToString()
+        {
+            StringBuilder result = new StringBuilder();
+
+            for (int row = 0; row < 2; row++)
+            {
+                result.Append("  ");
+                for (int col = 2; col < (this.Cols * 2) + 1; col++)
+                {
+                    if (row == 0)
+                    {
+                        if (col % 2 == 0)
+                        {
+                            result.Append((col - 2) / 2);
+                        }
+                        else
+                        {
+                            result.Append(' ');
+                        }
+                    }
+                    else
+                    {
+                        result.Append("-");
+                    }
+                }
+
+                result.AppendLine();
+            }
+
+            for (int row = 0; row < this.Rows; row++)
+            {
+                result.AppendFormat("{0}|", row);
+
+                for (int col = 0; col < this.Cols; col++)
+                {
+                    result.AppendFormat("{0} ", this.GameBoard[row, col]);
+                }
+
+                result.AppendLine();
+            }
+
+            return result.ToString();
+        }
     }
 }

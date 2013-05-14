@@ -7,40 +7,7 @@ namespace BattleField
 {
     public class GameEngine
     {
-        public static void AddBombs(string[,] gameBoard)
-        {
-            // Venelin - n, rows, cols removed
-            int gameBoardSize = gameBoard.GetLength(0) - 2;
-            int count = 0;
-            Random randomNumber = new Random();
-            int randomPlaceI;
-            int randomPlaceJ;
-            int minPercent = Convert.ToInt32(0.15 * (gameBoardSize * gameBoardSize));
-            int maxPercent = Convert.ToInt32(0.30 * (gameBoardSize * gameBoardSize));
-            int countMines = randomNumber.Next(minPercent, maxPercent);
-
-            while (count <= countMines)
-            {
-                randomPlaceI = randomNumber.Next(0, gameBoardSize);
-                randomPlaceJ = randomNumber.Next(0, gameBoardSize);
-                randomPlaceI += 2;
-                randomPlaceJ = (2 * randomPlaceJ) + 2;
-
-                while (gameBoard[randomPlaceI, randomPlaceJ] != " " && gameBoard[randomPlaceI, randomPlaceJ] != "-")
-                {
-                    randomPlaceI = randomNumber.Next(0, gameBoardSize);
-                    randomPlaceJ = randomNumber.Next(0, gameBoardSize);
-                    randomPlaceI += 2;
-                    randomPlaceJ = (2 * randomPlaceJ) + 2;
-                }
-
-                string randomDigit = Convert.ToString(randomNumber.Next(1, 6));
-                gameBoard[randomPlaceI, randomPlaceJ] = randomDigit;
-                gameBoard[randomPlaceI, randomPlaceJ + 1] = " ";
-                count++;
-            }
-        }
-
+        // No Need for this method. Should use Board.ToString()
         public static void PrintGameBoard(string[,] gameBoard)
         {
             // Venelin - rows and cols removed
@@ -108,20 +75,20 @@ namespace BattleField
             int hitCoordinate = Convert.ToInt32(gameBoard[x, y]);
             switch (hitCoordinate)
             {
-                case 1: 
+                case 1:
                     HitMineOfSizeOne(x, y, rows, cols, gameBoard);
                     break;
                 case 2:
-                    HitMineOfSizeTwo(x, y, rows, cols, gameBoard); 
+                    HitMineOfSizeTwo(x, y, rows, cols, gameBoard);
                     break;
                 case 3:
-                    HitMineOfSizeThree(x, y, rows, cols, gameBoard); 
+                    HitMineOfSizeThree(x, y, rows, cols, gameBoard);
                     break;
-                case 4: 
-                    HitMineOfSizeFour(x, y, rows, cols, gameBoard); 
+                case 4:
+                    HitMineOfSizeFour(x, y, rows, cols, gameBoard);
                     break;
-                case 5: 
-                    HitMineOfSizeFive(x, y, rows, cols, gameBoard); 
+                case 5:
+                    HitMineOfSizeFive(x, y, rows, cols, gameBoard);
                     break;
             }
 

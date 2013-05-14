@@ -15,7 +15,7 @@ namespace BattleField.Test
                 int gameFieldSize = i;
                 int matrixSize = gameFieldSize + 2;
                 string[,] testMatrix = new string[matrixSize, matrixSize];
-                
+
                 SetDefaultMatrixDisplay(testMatrix);
                 //PrintTestMatrix(testMatrix);
                 Assert.IsTrue(GameEngine.IsGameOver(testMatrix));
