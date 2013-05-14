@@ -9,7 +9,6 @@ namespace BattleField
     {
         public static void AddBombs(String[,] workField)
         {
-            // Ivo - n, rows, cols have no purpose in this method!
             // Venelin - n, rows, cols removed
             int gameFieldSize = workField.GetLength(0) - 2;
             int count = 0;
@@ -333,6 +332,7 @@ namespace BattleField
 
         public static bool IsGameOver(String[,] gameField)
         {
+            // Ivo - n, rows, cols removed. UnitTests are created. 
             bool isEnd = true;
             for (int i = 2; i < gameField.GetLength(0); i++)
             {
