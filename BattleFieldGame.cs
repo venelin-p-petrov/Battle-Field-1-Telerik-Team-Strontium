@@ -11,7 +11,7 @@ namespace BattleField
         {
             int gameBoardSize = GameEngine.ReadBoardSize();
             Board board = new Board(gameBoardSize);
-            GameEngine.PrintBoard(board.GameBoard);
+            GameEngine.PrintGameBoard(board.GameBoard);
             int countPlayed = 0;
             GameEngine.PlayerTurn(board.GameBoard, countPlayed);
         }

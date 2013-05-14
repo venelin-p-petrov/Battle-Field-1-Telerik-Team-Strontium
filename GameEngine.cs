@@ -41,7 +41,7 @@ namespace BattleField
             }
         }
 
-        public static void PrintBoard(string[,] gameBoard)
+        public static void PrintGameBoard(string[,] gameBoard)
         {
             // Venelin - rows and cols removed
             int rows = gameBoard.GetLength(0);
@@ -67,15 +67,15 @@ namespace BattleField
             int cols = gameBoard.GetLength(1);
 
             countPlayed++;
-            Console.WriteLine("Please enter coordinates: ");
+            Console.WriteLine("Please enter mine coordinates: ");
             string coordinates = Console.ReadLine();
             int x = int.Parse(coordinates.Substring(0, 1));
             int y = int.Parse(coordinates.Substring(2, 1));
 
             while ((x < 0 || x > (gameBoardSize - 1)) && (y < 0 || y > (gameBoardSize - 1)))
             {
-                Console.WriteLine("Invalid move !");
-                Console.WriteLine("Please enter coordinates: ");
+                Console.WriteLine("Invalid move!");
+                Console.WriteLine("Please enter mine coordinates: ");
                 coordinates = Console.ReadLine();
                 x = int.Parse(coordinates.Substring(0, 1));
                 y = int.Parse(coordinates.Substring(2, 1));
@@ -109,23 +109,23 @@ namespace BattleField
             switch (hitCoordinate)
             {
                 case 1: 
-                    HitOne(x, y, rows, cols, gameBoard);
+                    HitMineOfSizeOne(x, y, rows, cols, gameBoard);
                     break;
                 case 2:
-                    HitTwo(x, y, rows, cols, gameBoard); 
+                    HitMineOfSizeTwo(x, y, rows, cols, gameBoard); 
                     break;
                 case 3:
-                    HitThree(x, y, rows, cols, gameBoard); 
+                    HitMineOfSizeThree(x, y, rows, cols, gameBoard); 
                     break;
                 case 4: 
-                    HitFour(x, y, rows, cols, gameBoard); 
+                    HitMineOfSizeFour(x, y, rows, cols, gameBoard); 
                     break;
                 case 5: 
-                    HitFive(x, y, rows, cols, gameBoard); 
+                    HitMineOfSizeFive(x, y, rows, cols, gameBoard); 
                     break;
             }
 
-            PrintBoard(gameBoard);
+            PrintGameBoard(gameBoard);
             if (!IsGameOver(gameBoard))
             {
                 PlayerTurn(gameBoard, countPlayed);
@@ -137,7 +137,7 @@ namespace BattleField
         }
 
         // Venelin - All Hit methods could be joined in one.
-        public static void HitOne(int x, int y, int rows, int cols, string[,] gameBoard)
+        public static void HitMineOfSizeOne(int x, int y, int rows, int cols, string[,] gameBoard)
         {
             gameBoard[x, y] = "X";
             if (x - 1 > 1 && y - 2 > 1)
@@ -161,10 +161,10 @@ namespace BattleField
             }
         }
 
-        public static void HitTwo(int x, int y, int rows, int cols, string[,] gameBoard)
+        public static void HitMineOfSizeTwo(int x, int y, int rows, int cols, string[,] gameBoard)
         {
             gameBoard[x, y] = "X";
-            HitOne(x, y, rows, cols, gameBoard);
+            HitMineOfSizeOne(x, y, rows, cols, gameBoard);
             if (y - 2 > 1)
             {
                 gameBoard[x, y - 2] = "X";
@@ -186,9 +186,9 @@ namespace BattleField
             }
         }
 
-        public static void HitThree(int x, int y, int rows, int cols, string[,] gameBoard)
+        public static void HitMineOfSizeThree(int x, int y, int rows, int cols, string[,] gameBoard)
         {
-            HitTwo(x, y, rows, cols, gameBoard);
+            HitMineOfSizeTwo(x, y, rows, cols, gameBoard);
             if (x - 2 > 1)
             {
                 gameBoard[x - 2, y] = "X";
@@ -221,9 +221,9 @@ namespace BattleField
             }
         }
 
-        public static void HitFour(int x, int y, int rows, int cols, string[,] gameBoard)
+        public static void HitMineOfSizeFour(int x, int y, int rows, int cols, string[,] gameBoard)
         {
-            HitThree(x, y, rows, cols, gameBoard);
+            HitMineOfSizeThree(x, y, rows, cols, gameBoard);
             if (x - 2 > 1 && y - 2 > 1)
             {
                 gameBoard[x - 2, y - 2] = "X";
@@ -292,9 +292,9 @@ namespace BattleField
             }
         }
 
-        public static void HitFive(int x, int y, int rows, int cols, string[,] gameBoard)
+        public static void HitMineOfSizeFive(int x, int y, int rows, int cols, string[,] gameBoard)
         {
-            HitFour(x, y, rows, cols, gameBoard);
+            HitMineOfSizeFour(x, y, rows, cols, gameBoard);
             if (x - 2 > 1 && y - 4 > 1)
             {
                 gameBoard[x - 2, y - 4] = "X";
@@ -343,15 +343,15 @@ namespace BattleField
             }
         }
 
-        public static bool IsGameOver(string[,] gameField)
+        public static bool IsGameOver(string[,] gameBoard)
         {
             // Ivo - n, rows, cols removed. UnitTests are created. 
             bool isEnd = true;
-            for (int i = 2; i < gameField.GetLength(0); i++)
+            for (int i = 2; i < gameBoard.GetLength(0); i++)
             {
-                for (int j = 2; j < gameField.GetLength(1); j++)
+                for (int j = 2; j < gameBoard.GetLength(1); j++)
                 {
-                    if (gameField[i, j] == "1" || gameField[i, j] == "2" || gameField[i, j] == "3" || gameField[i, j] == "4" || gameField[i, j] == "5")
+                    if (gameBoard[i, j] == "1" || gameBoard[i, j] == "2" || gameBoard[i, j] == "3" || gameBoard[i, j] == "4" || gameBoard[i, j] == "5")
                     {
                         isEnd = false;
                         break;
