@@ -130,7 +130,7 @@ namespace BattleField
             }
 
             PrintArray(workField);
-            if (!IsGameOver(rows, cols, workField))
+            if (!IsGameOver(workField))
             {
                 PlayerTurn(workField, countPlayed);
             }
@@ -331,12 +331,12 @@ namespace BattleField
             }
         }
 
-        public static bool IsGameOver(int rows, int cols, String[,] gameField)
+        public static bool IsGameOver(String[,] gameField)
         {
             bool isEnd = true;
-            for (int i = 2; i < rows; i++)
+            for (int i = 2; i < gameField.GetLength(0); i++)
             {
-                for (int j = 2; j < cols; j++)
+                for (int j = 2; j < gameField.GetLength(1); j++)
                 {
                     if (gameField[i, j] == "1" || gameField[i, j] == "2" || gameField[i, j] == "3" || gameField[i, j] == "4" || gameField[i, j] == "5")
                     {

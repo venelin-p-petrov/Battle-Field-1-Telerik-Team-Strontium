@@ -5,3 +5,8 @@ C:\Users\HAXVY\Desktop\Telerik\ACADEMY\C#\KPK\Teamwork\Battle-Field-1-Telerik-Te
 C:\Users\HAXVY\Desktop\Telerik\ACADEMY\C#\KPK\Teamwork\Battle-Field-1-Telerik-Team-Strontium\obj\x86\Debug\Bombi.pdb
 C:\Users\Iany\Documents\GitHub\Battle-Field-1-Telerik-Team-Strontium\obj\x86\Debug\Bombi.exe
 C:\Users\Iany\Documents\GitHub\Battle-Field-1-Telerik-Team-Strontium\obj\x86\Debug\Bombi.pdb
+D:\Telerik\Strontium\Battle-Field-1-Telerik-Team-Strontium\obj\x86\Debug\Bombi.exe
+D:\Telerik\Strontium\Battle-Field-1-Telerik-Team-Strontium\obj\x86\Debug\Bombi.pdb
+D:\Telerik\Strontium\Battle-Field-1-Telerik-Team-Strontium\bin\Debug\Bombi.exe
+D:\Telerik\Strontium\Battle-Field-1-Telerik-Team-Strontium\bin\Debug\Bombi.pdb
+D:\Telerik\Strontium\Battle-Field-1-Telerik-Team-Strontium\obj\x86\Debug\BattleField.csprojResolveAssemblyReference.cache

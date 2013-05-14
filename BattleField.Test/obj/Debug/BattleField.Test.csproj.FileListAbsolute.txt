@@ -5,3 +5,10 @@ C:\Users\HAXVY\Desktop\Telerik\ACADEMY\C#\KPK\Teamwork\Battle-Field-1-Telerik-Te
 C:\Users\HAXVY\Desktop\Telerik\ACADEMY\C#\KPK\Teamwork\Battle-Field-1-Telerik-Team-Strontium\BattleField.Test\obj\Debug\BattleField.Test.csprojResolveAssemblyReference.cache
 C:\Users\HAXVY\Desktop\Telerik\ACADEMY\C#\KPK\Teamwork\Battle-Field-1-Telerik-Team-Strontium\BattleField.Test\obj\Debug\BattleField.Test.dll
 C:\Users\HAXVY\Desktop\Telerik\ACADEMY\C#\KPK\Teamwork\Battle-Field-1-Telerik-Team-Strontium\BattleField.Test\obj\Debug\BattleField.Test.pdb
+D:\Telerik\Strontium\Battle-Field-1-Telerik-Team-Strontium\BattleField.Test\bin\Debug\BattleField.Test.dll
+D:\Telerik\Strontium\Battle-Field-1-Telerik-Team-Strontium\BattleField.Test\bin\Debug\BattleField.Test.pdb
+D:\Telerik\Strontium\Battle-Field-1-Telerik-Team-Strontium\BattleField.Test\bin\Debug\Bombi.exe
+D:\Telerik\Strontium\Battle-Field-1-Telerik-Team-Strontium\BattleField.Test\bin\Debug\Bombi.pdb
+D:\Telerik\Strontium\Battle-Field-1-Telerik-Team-Strontium\BattleField.Test\obj\Debug\BattleField.Test.csprojResolveAssemblyReference.cache
+D:\Telerik\Strontium\Battle-Field-1-Telerik-Team-Strontium\BattleField.Test\obj\Debug\BattleField.Test.dll
+D:\Telerik\Strontium\Battle-Field-1-Telerik-Team-Strontium\BattleField.Test\obj\Debug\BattleField.Test.pdb
