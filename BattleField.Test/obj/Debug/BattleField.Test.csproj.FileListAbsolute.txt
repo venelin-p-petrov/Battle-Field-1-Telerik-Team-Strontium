@@ -12,3 +12,10 @@ D:\Telerik\Strontium\Battle-Field-1-Telerik-Team-Strontium\BattleField.Test\bin\
 D:\Telerik\Strontium\Battle-Field-1-Telerik-Team-Strontium\BattleField.Test\obj\Debug\BattleField.Test.csprojResolveAssemblyReference.cache
 D:\Telerik\Strontium\Battle-Field-1-Telerik-Team-Strontium\BattleField.Test\obj\Debug\BattleField.Test.dll
 D:\Telerik\Strontium\Battle-Field-1-Telerik-Team-Strontium\BattleField.Test\obj\Debug\BattleField.Test.pdb
+C:\Users\SMVALKOV\Google Drive\TelerikAcademy\QPC\Team_Work\BattleField-1\BattleField.Test\bin\Debug\BattleField.Test.dll
+C:\Users\SMVALKOV\Google Drive\TelerikAcademy\QPC\Team_Work\BattleField-1\BattleField.Test\bin\Debug\BattleField.Test.pdb
+C:\Users\SMVALKOV\Google Drive\TelerikAcademy\QPC\Team_Work\BattleField-1\BattleField.Test\obj\Debug\BattleField.Test.csprojResolveAssemblyReference.cache
+C:\Users\SMVALKOV\Google Drive\TelerikAcademy\QPC\Team_Work\BattleField-1\BattleField.Test\obj\Debug\BattleField.Test.dll
+C:\Users\SMVALKOV\Google Drive\TelerikAcademy\QPC\Team_Work\BattleField-1\BattleField.Test\obj\Debug\BattleField.Test.pdb
+C:\Users\SMVALKOV\Google Drive\TelerikAcademy\QPC\Team_Work\BattleField-1\BattleField.Test\bin\Debug\BattleField.exe
+C:\Users\SMVALKOV\Google Drive\TelerikAcademy\QPC\Team_Work\BattleField-1\BattleField.Test\bin\Debug\BattleField.pdb
