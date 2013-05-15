@@ -34,14 +34,14 @@ namespace BattleField
 
             this.Rows = gameBoardSize;
             this.Cols = gameBoardSize;
-            this.GameBoard = GenerateGameBoard();
+            this.GameBoard = this.GenerateGameBoard();
         }
 
         private string[,] GenerateGameBoard()
         {
             string[,] gameBoard = new string[this.Rows, this.Cols];
 
-            AddBombs(gameBoard);
+            this.AddBombs(gameBoard);
 
             for (int row = 0; row < this.Rows; row++)
             {

@@ -34,24 +34,25 @@ namespace BattleField
             int cols = gameBoard.Cols;
 
             gameBoard.GameBoard[x, y] = "X";
-            if (x - 1 > 1 && y - 2 > 1)
+
+            if (x - 1 >= 0 && y - 1 >= 0)
             {
-                gameBoard.GameBoard[x - 1, y - 2] = "X";
+                gameBoard.GameBoard[x - 1, y - 1] = "X";
             }
 
-            if (x - 1 > 1 && y < cols - 2)
+            if (x - 1 >= 0 && y + 1 < cols)
             {
-                gameBoard.GameBoard[x - 1, y + 2] = "X";
+                gameBoard.GameBoard[x - 1, y + 1] = "X";
             }
 
-            if (x < rows - 1 && y < cols - 2)
+            if (x + 1 < rows && y + 1 < cols)
             {
-                gameBoard.GameBoard[x + 1, y + 2] = "X";
+                gameBoard.GameBoard[x + 1, y + 1] = "X";
             }
 
-            if (x < rows - 1 && y - 2 > 1)
+            if (x + 1 < rows && y - 1 >= 0)
             {
-                gameBoard.GameBoard[x + 1, y - 2] = "X";
+                gameBoard.GameBoard[x + 1, y - 1] = "X";
             }
         }
 
@@ -63,22 +64,22 @@ namespace BattleField
             gameBoard.GameBoard[x, y] = "X";
 
             HitMineOfSizeOne(x, y, gameBoard);
-            if (y - 2 > 1)
+            if (y - 1 >= 0)
             {
-                gameBoard.GameBoard[x, y - 2] = "X";
+                gameBoard.GameBoard[x, y - 1] = "X";
             }
 
-            if (y < cols - 2)
+            if (y + 1 < cols)
             {
-                gameBoard.GameBoard[x, y + 2] = "X";
+                gameBoard.GameBoard[x, y + 1] = "X";
             }
 
-            if (x - 1 > 1)
+            if (x - 1 >= 0)
             {
                 gameBoard.GameBoard[x - 1, y] = "X";
             }
 
-            if (x < rows - 1)
+            if (x + 1 < rows)
             {
                 gameBoard.GameBoard[x + 1, y] = "X";
             }
@@ -90,35 +91,25 @@ namespace BattleField
             int cols = gameBoard.Cols;
 
             HitMineOfSizeTwo(x, y, gameBoard);
-            if (x - 2 > 1)
+
+            if (x - 2 >= 0)
             {
                 gameBoard.GameBoard[x - 2, y] = "X";
             }
 
-            if (x < rows - 2)
+            if (x + 2 < rows)
             {
                 gameBoard.GameBoard[x + 2, y] = "X";
             }
 
-            if (y - 4 > 1)
+            if (y - 2 >= 0)
             {
-                gameBoard.GameBoard[x, y - 4] = "X";
+                gameBoard.GameBoard[x, y - 2] = "X";
             }
 
-            if (y == 18)
+            if (y + 2 < cols)
             {
                 gameBoard.GameBoard[x, y + 2] = "X";
-            }
-            else if (y == 20)
-            {
-                gameBoard.GameBoard[x, y] = "X";
-            }
-            else
-            {
-                if (y < cols - 3)
-                {
-                    gameBoard.GameBoard[x, y + 4] = "X";
-                }
             }
         }
 
@@ -128,72 +119,46 @@ namespace BattleField
             int cols = gameBoard.Cols;
 
             HitMineOfSizeThree(x, y, gameBoard);
-            if (x - 2 > 1 && y - 2 > 1)
+
+            if (x - 2 >= 0 && y - 1 >= 0)
             {
-                gameBoard.GameBoard[x - 2, y - 2] = "X";
+                gameBoard.GameBoard[x - 2, y - 1] = "X";
             }
 
-            if (x - 1 > 1 && y - 4 > 1)
+            if (x - 2 >= 0 && y + 1 < cols)
             {
-                gameBoard.GameBoard[x - 1, y - 4] = "X";
+                gameBoard.GameBoard[x - 2, y + 1] = "X";
             }
 
-            if (x - 2 > 1 && y < cols - 2)
+            if (x - 1 >= 0  && y + 2 < cols)
             {
-                gameBoard.GameBoard[x - 2, y + 2] = "X";
+                gameBoard.GameBoard[x - 1, y + 2] = "X";
             }
 
-            if (x < rows - 1 && y - 4 > 1)
+            if (x + 1 < rows && y + 2 < cols)
             {
-                gameBoard.GameBoard[x + 1, y - 4] = "X";
+                gameBoard.GameBoard[x + 1, y + 2] = "X";
+            }            
+
+            if (x + 2 < rows && y + 1 < cols)
+            {
+                gameBoard.GameBoard[x + 2, y + 1] = "X";
             }
 
-            if (x < rows - 2 && y - 2 > 1)
+            if (x + 2 < rows && y - 1 >= 0)
             {
-                gameBoard.GameBoard[x + 2, y - 2] = "X";
+                gameBoard.GameBoard[x + 2, y - 1] = "X";
             }
 
-            if (x < rows - 2 && y < cols - 2)
+            if (x - 1 >= 0 && y - 2 >= 0)
             {
-                gameBoard.GameBoard[x + 2, y + 2] = "X";
+                gameBoard.GameBoard[x - 1, y - 2] = "X";
             }
 
-            if (y == 18)
+            if (x + 1 < rows && y - 2 >= 0)
             {
-                if (x - 1 > 1)
-                {
-                    gameBoard.GameBoard[x - 1, y + 2] = "X";
-                }
-
-                if (x < rows - 1)
-                {
-                    gameBoard.GameBoard[x + 1, y + 2] = "X";
-                }
-            }
-            else if (y == 20)
-            {
-                if (x - 1 > 1)
-                {
-                    gameBoard.GameBoard[x - 1, y] = "X";
-                }
-
-                if (x < rows - 1)
-                {
-                    gameBoard.GameBoard[x + 1, y] = "X";
-                }
-            }
-            else
-            {
-                if (x - 1 > 1 && y < cols - 3)
-                {
-                    gameBoard.GameBoard[x - 1, y + 4] = "X";
-                }
-
-                if (x < rows - 1 && y < cols - 3)
-                {
-                    gameBoard.GameBoard[x + 1, y + 4] = "X";
-                }
-            }
+                gameBoard.GameBoard[x + 1, y - 2] = "X";
+            }            
         }
 
         private static void HitMineOfSizeFive(int x, int y, Board gameBoard)
@@ -202,52 +167,26 @@ namespace BattleField
             int cols = gameBoard.Cols;
 
             HitMineOfSizeFour(x, y, gameBoard);
-            if (x - 2 > 1 && y - 4 > 1)
+
+            if (x - 2 >= 0 && y - 2 >= 0)
             {
-                gameBoard.GameBoard[x - 2, y - 4] = "X";
+                gameBoard.GameBoard[x - 2, y - 2] = "X";
             }
 
-            if (x < rows - 2 && y - 4 > 1)
+            if (x - 2 >= 0 && y + 2 < cols)
             {
-                gameBoard.GameBoard[x + 2, y - 4] = "X";
+                gameBoard.GameBoard[x - 2, y + 2] = "X";
             }
 
-            if (y == 18)
+            if (x + 2 < rows && y + 2 < cols)
             {
-                if (x < rows - 2)
-                {
-                    gameBoard.GameBoard[x + 2, y + 2] = "X";
-                }
-
-                if (x - 2 > 1)
-                {
-                    gameBoard.GameBoard[x - 2, y + 2] = "X";
-                }
+                gameBoard.GameBoard[x + 2, y + 2] = "X";
             }
-            else if (y == 20)
+
+            if (x + 2 < rows && y - 2 >= 0)
             {
-                if (x < rows - 2)
-                {
-                    gameBoard.GameBoard[x + 2, y] = "X";
-                }
-
-                if (x - 2 > 1)
-                {
-                    gameBoard.GameBoard[x - 2, y] = "X";
-                }
-            }
-            else
-            {
-                if (x < rows - 2 && y < cols - 3)
-                {
-                    gameBoard.GameBoard[x + 2, y + 4] = "X";
-                }
-
-                if (x - 2 > 1 && y < cols - 3)
-                {
-                    gameBoard.GameBoard[x - 2, y + 4] = "X";
-                }
-            }
+                gameBoard.GameBoard[x + 2, y - 2] = "X";
+            }            
         }
     }
 }

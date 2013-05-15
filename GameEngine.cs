@@ -7,24 +7,6 @@ namespace BattleField
 {
     public class GameEngine
     {
-        // No Need for this method. Should use Board.ToString()
-        public static void PrintGameBoard(string[,] gameBoard)
-        {
-            // Venelin - rows and cols removed
-            int rows = gameBoard.GetLength(0);
-            int cols = gameBoard.GetLength(1);
-
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < cols; j++)
-                {
-                    Console.Write(gameBoard[i, j]);
-                }
-
-                Console.WriteLine();
-            }
-        }
-
         public static void PlayerTurn(Board gameBoard, int countPlayed)
         {
             // Venelin - n, rows and cols removed

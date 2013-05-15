@@ -11,8 +11,6 @@ namespace BattleField
         {
             int gameBoardSize = GameEngine.ReadBoardSize();
             Board board = new Board(gameBoardSize);
-            // No need for PrintGameBoard
-            //GameEngine.PrintGameBoard(board.GameBoardView);
             Console.WriteLine(board);
             int countPlayed = 0;
             // Venelin - PlayerTurn has to be changed.
