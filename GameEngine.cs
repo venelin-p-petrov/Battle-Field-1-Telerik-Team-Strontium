@@ -42,7 +42,7 @@
             }
             else
             {
-                Console.WriteLine("Game over. Detonated mines: " + GameEngine.turnsCounter);
+                Console.WriteLine("Game over. Detonated mines: {0}", GameEngine.turnsCounter);
             }
         }
 
