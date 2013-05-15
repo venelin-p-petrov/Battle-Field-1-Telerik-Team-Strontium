@@ -7,10 +7,11 @@
     {
         public static void Main(string[] args)
         {
-            int gameBoardSize = GameEngine.ReadBoardSize();
+            ConsoleUserInput userInput = new ConsoleUserInput();
+            int gameBoardSize = GameEngine.ReadBoardSize(userInput);
             Board board = new Board(gameBoardSize);
             Console.WriteLine(board);
-            GameEngine.PlayGame(board);
+            GameEngine.PlayGame(board, userInput);
         }
     }
 }
