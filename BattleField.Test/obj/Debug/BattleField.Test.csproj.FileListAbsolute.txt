@@ -19,3 +19,10 @@ C:\Users\SMVALKOV\Google Drive\TelerikAcademy\QPC\Team_Work\BattleField-1\Battle
 C:\Users\SMVALKOV\Google Drive\TelerikAcademy\QPC\Team_Work\BattleField-1\BattleField.Test\bin\Debug\BattleField.pdb
 C:\Users\HAXVY\Desktop\Telerik\ACADEMY\C#\KPK\Teamwork\Battle-Field-1-Telerik-Team-Strontium\BattleField.Test\bin\Debug\BattleField.exe
 C:\Users\HAXVY\Desktop\Telerik\ACADEMY\C#\KPK\Teamwork\Battle-Field-1-Telerik-Team-Strontium\BattleField.Test\bin\Debug\BattleField.pdb
+C:\Users\Iany\Documents\GitHub\Battle-Field-1-Telerik-Team-Strontium\BattleField.Test\bin\Debug\BattleField.Test.dll
+C:\Users\Iany\Documents\GitHub\Battle-Field-1-Telerik-Team-Strontium\BattleField.Test\bin\Debug\BattleField.Test.pdb
+C:\Users\Iany\Documents\GitHub\Battle-Field-1-Telerik-Team-Strontium\BattleField.Test\bin\Debug\BattleField.exe
+C:\Users\Iany\Documents\GitHub\Battle-Field-1-Telerik-Team-Strontium\BattleField.Test\bin\Debug\BattleField.pdb
+C:\Users\Iany\Documents\GitHub\Battle-Field-1-Telerik-Team-Strontium\BattleField.Test\obj\Debug\BattleField.Test.csprojResolveAssemblyReference.cache
+C:\Users\Iany\Documents\GitHub\Battle-Field-1-Telerik-Team-Strontium\BattleField.Test\obj\Debug\BattleField.Test.dll
+C:\Users\Iany\Documents\GitHub\Battle-Field-1-Telerik-Team-Strontium\BattleField.Test\obj\Debug\BattleField.Test.pdb
