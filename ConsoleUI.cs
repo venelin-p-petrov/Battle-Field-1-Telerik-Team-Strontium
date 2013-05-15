@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BattleField
 {
-    class ConsoleUserInput : IConsole
+    class ConsoleUI : IConsole
     {
         public void Write(string message)
         {

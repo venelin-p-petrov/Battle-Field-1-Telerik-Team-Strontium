@@ -7,7 +7,7 @@
     {
         public static void Main(string[] args)
         {
-            ConsoleUserInput userInput = new ConsoleUserInput();
+            ConsoleUI userInput = new ConsoleUI();
             int gameBoardSize = GameEngine.ReadBoardSize(userInput);
             Board board = new Board(gameBoardSize);
             Console.WriteLine(board);

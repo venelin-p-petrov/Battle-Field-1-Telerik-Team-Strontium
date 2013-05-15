@@ -88,7 +88,7 @@ namespace BattleField.Test
         [TestMethod]
         public void ReadBoardSizeTest_ValidSize5()
         {
-            TestConsoleInput testConsole = new TestConsoleInput();
+            TestConsoleUI testConsole = new TestConsoleUI();
             testConsole.Input = "5";
             StringBuilder expectedOutput = new StringBuilder();
             expectedOutput.Append("Welcome to \"Battle Field game.\" Enter battlefield size: N = ");
@@ -102,7 +102,7 @@ namespace BattleField.Test
         [TestMethod]
         public void ReadBoardSizeTest_ValidSize1()
         {
-            TestConsoleInput testConsole = new TestConsoleInput();
+            TestConsoleUI testConsole = new TestConsoleUI();
             testConsole.Input = "1";
             StringBuilder expectedOutput = new StringBuilder();
             expectedOutput.Append("Welcome to \"Battle Field game.\" Enter battlefield size: N = ");
@@ -116,7 +116,7 @@ namespace BattleField.Test
         [TestMethod]
         public void ReadBoardSizeTest_ValidSize10()
         {
-            TestConsoleInput testConsole = new TestConsoleInput();
+            TestConsoleUI testConsole = new TestConsoleUI();
             testConsole.Input = "10";
             StringBuilder expectedOutput = new StringBuilder();
             expectedOutput.Append("Welcome to \"Battle Field game.\" Enter battlefield size: N = ");
@@ -130,7 +130,7 @@ namespace BattleField.Test
         [TestMethod]
         public void ReadBoardSizeTest_InvalidSize0ThenValid5()
         {
-            TestConsoleInput testConsole = new TestConsoleInput();
+            TestConsoleUI testConsole = new TestConsoleUI();
             testConsole.Input = "0\n5";
             StringBuilder expectedOutput = new StringBuilder();
             expectedOutput.Append("Welcome to \"Battle Field game.\" Enter battlefield size: N = ");
@@ -145,7 +145,7 @@ namespace BattleField.Test
         [TestMethod]
         public void ReadBoardSizeTest_TwiceInvalidSize0ThenValid5()
         {
-            TestConsoleInput testConsole = new TestConsoleInput();
+            TestConsoleUI testConsole = new TestConsoleUI();
             testConsole.Input = "0\n0\n5";
             StringBuilder expectedOutput = new StringBuilder();
             expectedOutput.Append("Welcome to \"Battle Field game.\" Enter battlefield size: N = ");
@@ -161,7 +161,7 @@ namespace BattleField.Test
         [TestMethod]
         public void PlayGameTest_SuccessfulGamePlayed1Bomb()
         {
-            TestConsoleInput testConsole = new TestConsoleInput();
+            TestConsoleUI testConsole = new TestConsoleUI();
             testConsole.Input = "1 1";
             StringBuilder expectedOutput = new StringBuilder();
             Board board = new Board(3);
@@ -196,7 +196,7 @@ namespace BattleField.Test
         [TestMethod]
         public void PlayGameTest_SuccessfulGamePlayedTryInvalidMove()
         {
-            TestConsoleInput testConsole = new TestConsoleInput();
+            TestConsoleUI testConsole = new TestConsoleUI();
             testConsole.Input = "1 1\n1 1\n0 1";
             StringBuilder expectedOutput = new StringBuilder();
             Board board = new Board(3);
@@ -284,12 +284,12 @@ namespace BattleField.Test
             }
         }
 
-        private class TestConsoleInput : IConsole
+        private class TestConsoleUI : IConsole
         {
             public StringBuilder Output { get; set; }
             public string Input { get; set; }
 
-            public TestConsoleInput()
+            public TestConsoleUI()
             {
                 this.Output = new StringBuilder();
             }

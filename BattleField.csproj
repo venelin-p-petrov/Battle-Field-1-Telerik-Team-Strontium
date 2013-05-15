@@ -46,7 +46,7 @@
   <ItemGroup>
     <Compile Include="BattleFieldGame.cs" />
     <Compile Include="Board.cs" />
-    <Compile Include="ConsoleUserInput.cs" />
+    <Compile Include="ConsoleUI.cs" />
     <Compile Include="ExplosionHandler.cs" />
     <Compile Include="GameEngine.cs" />
     <Compile Include="IConsole.cs" />
