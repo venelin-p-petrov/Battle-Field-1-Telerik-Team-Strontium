@@ -28,7 +28,7 @@ namespace BattleField
             }
         }
 
-        public static void HitMineOfSizeOne(int x, int y, Board gameBoard)
+        private static void HitMineOfSizeOne(int x, int y, Board gameBoard)
         {
             int rows = gameBoard.Rows;
             int cols = gameBoard.Cols;
@@ -55,7 +55,7 @@ namespace BattleField
             }
         }
 
-        public static void HitMineOfSizeTwo(int x, int y, Board gameBoard)
+        private static void HitMineOfSizeTwo(int x, int y, Board gameBoard)
         {
             int rows = gameBoard.Rows;
             int cols = gameBoard.Cols;
@@ -84,7 +84,7 @@ namespace BattleField
             }
         }
 
-        public static void HitMineOfSizeThree(int x, int y, Board gameBoard)
+        private static void HitMineOfSizeThree(int x, int y, Board gameBoard)
         {
             int rows = gameBoard.Rows;
             int cols = gameBoard.Cols;
@@ -122,7 +122,7 @@ namespace BattleField
             }
         }
 
-        public static void HitMineOfSizeFour(int x, int y, Board gameBoard)
+        private static void HitMineOfSizeFour(int x, int y, Board gameBoard)
         {
             int rows = gameBoard.Rows;
             int cols = gameBoard.Cols;
@@ -196,7 +196,7 @@ namespace BattleField
             }
         }
 
-        public static void HitMineOfSizeFive(int x, int y, Board gameBoard)
+        private static void HitMineOfSizeFive(int x, int y, Board gameBoard)
         {
             int rows = gameBoard.Rows;
             int cols = gameBoard.Cols;
