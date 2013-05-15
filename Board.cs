@@ -1,12 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace BattleField
+﻿namespace BattleField
 {
+    using System;
+    using System.Text;
+
     public class Board
     {
+        public Board(int gameBoardSize)
+        {
+            if (gameBoardSize < 1 || gameBoardSize > 10)
+            {
+                throw new ArgumentException("Invalid board size!");
+            }
+
+            this.Rows = gameBoardSize;
+            this.Cols = gameBoardSize;
+            this.GameBoard = this.GenerateGameBoard();
+        }
+
         public int Rows
         {
             get;
@@ -23,63 +33,6 @@ namespace BattleField
         {
             get;
             protected set;
-        }
-
-        public Board(int gameBoardSize)
-        {
-            if (gameBoardSize < 1 || gameBoardSize > 10)
-            {
-                throw new ArgumentException("Invalid board size!");
-            }
-
-            this.Rows = gameBoardSize;
-            this.Cols = gameBoardSize;
-            this.GameBoard = this.GenerateGameBoard();
-        }
-
-        private string[,] GenerateGameBoard()
-        {
-            string[,] gameBoard = new string[this.Rows, this.Cols];
-
-            this.AddBombs(gameBoard);
-
-            for (int row = 0; row < this.Rows; row++)
-            {
-                for (int col = 0; col < this.Cols; col++)
-                {
-                    if (gameBoard[row, col] == null)
-                    {
-                        gameBoard[row, col] = "-";
-                    }
-                }
-            }
-
-            return gameBoard;
-        }
-
-        private void AddBombs(string[,] gameBoard)
-        {
-            int gameBoardSize = this.Rows;
-            int count = 0;
-            Random randomNumber = new Random();
-            int randomPlaceI;
-            int randomPlaceJ;
-            int minPercent = Convert.ToInt32(0.15 * (gameBoardSize * gameBoardSize));
-            int maxPercent = Convert.ToInt32(0.30 * (gameBoardSize * gameBoardSize));
-            int countMines = randomNumber.Next(minPercent, maxPercent);
-
-            while (count < countMines)
-            {
-                do
-                {
-                    randomPlaceI = randomNumber.Next(0, gameBoardSize);
-                    randomPlaceJ = randomNumber.Next(0, gameBoardSize);
-                } while (gameBoard[randomPlaceI, randomPlaceJ] != null);
-
-                string randomDigit = Convert.ToString(randomNumber.Next(1, 6));
-                gameBoard[randomPlaceI, randomPlaceJ] = randomDigit;
-                count++;
-            }
         }
 
         public override string ToString()
@@ -124,6 +77,52 @@ namespace BattleField
             }
 
             return result.ToString();
+        }
+
+        private string[,] GenerateGameBoard()
+        {
+            string[,] gameBoard = new string[this.Rows, this.Cols];
+
+            this.AddBombs(gameBoard);
+
+            for (int row = 0; row < this.Rows; row++)
+            {
+                for (int col = 0; col < this.Cols; col++)
+                {
+                    if (gameBoard[row, col] == null)
+                    {
+                        gameBoard[row, col] = "-";
+                    }
+                }
+            }
+
+            return gameBoard;
+        }
+
+        private void AddBombs(string[,] gameBoard)
+        {
+            int gameBoardSize = this.Rows;
+            int count = 0;
+            Random randomNumber = new Random();
+            int randomPlaceI;
+            int randomPlaceJ;
+            int minPercent = Convert.ToInt32(0.15 * (gameBoardSize * gameBoardSize));
+            int maxPercent = Convert.ToInt32(0.30 * (gameBoardSize * gameBoardSize));
+            int countMines = randomNumber.Next(minPercent, maxPercent);
+
+            while (count < countMines)
+            {
+                do
+                {
+                    randomPlaceI = randomNumber.Next(0, gameBoardSize);
+                    randomPlaceJ = randomNumber.Next(0, gameBoardSize);
+                }
+                while (gameBoard[randomPlaceI, randomPlaceJ] != null);
+
+                string randomDigit = Convert.ToString(randomNumber.Next(1, 6));
+                gameBoard[randomPlaceI, randomPlaceJ] = randomDigit;
+                count++;
+            }
         }
     }
 }

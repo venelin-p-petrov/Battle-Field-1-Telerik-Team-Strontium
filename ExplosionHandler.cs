@@ -1,14 +1,14 @@
-﻿using System;
-
-namespace BattleField
+﻿namespace BattleField
 {
+    using System;
+
     public class ExplosionHandler
     {
         public static void HitMine(Board gameBoard, int x, int y)
         {
-            int hitCoordinate = Convert.ToInt32(gameBoard.GameBoard[x, y]);
+            int mineSize = Convert.ToInt32(gameBoard.GameBoard[x, y]);
 
-            switch (hitCoordinate)
+            switch (mineSize)
             {
                 case 1:
                     HitMineOfSizeOne(x, y, gameBoard);

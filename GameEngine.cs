@@ -1,64 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace BattleField
+﻿namespace BattleField
 {
+    using System;
+    using System.Text;
+
     public class GameEngine
     {
-        public static void PlayerTurn(Board gameBoard, int countPlayed)
+        private static int turnsCounter = 0;
+
+        public static void PlayGame(Board gameBoard)
         {
             // Venelin - n, rows and cols removed
-            // x and y coordinates can be made into structure
+            // x and y mineCoordinates can be made into structure
             int gameBoardSize = gameBoard.Rows;
             int rows = gameBoard.Rows;
             int cols = gameBoard.Cols;
 
-            countPlayed++;
-            Console.WriteLine("Please enter mine coordinates: ");
-            string coordinates = Console.ReadLine();
-            int x = int.Parse(coordinates.Substring(0, 1));
-            int y = int.Parse(coordinates.Substring(2, 1));
+            GameEngine.turnsCounter++;
 
-            while ((x < 0 || x > (gameBoardSize - 1)) && (y < 0 || y > (gameBoardSize - 1)))
+            Console.WriteLine("Please enter mine coordinates: ");
+            string[] mineCoordinates = Console.ReadLine().Split(' ', ',');
+            int x = int.Parse(mineCoordinates[0]);
+            int y = int.Parse(mineCoordinates[1]);
+
+            while (x < 0 || x >= gameBoardSize || 
+                   y < 0 || y >= gameBoardSize ||
+                   gameBoard.GameBoard[x, y] == "-" || gameBoard.GameBoard[x, y] == "X")
             {
                 Console.WriteLine("Invalid move!");
-                Console.WriteLine("Please enter mine coordinates: ");
-                coordinates = Console.ReadLine();
-                x = int.Parse(coordinates.Substring(0, 1));
-                y = int.Parse(coordinates.Substring(2, 1));
-            }
-
-            while (gameBoard.GameBoard[x, y] == "-" || gameBoard.GameBoard[x, y] == "X")
-            {
-                Console.WriteLine("Invalid move! ");
-                Console.WriteLine("Please enter coordinates: ");
-                coordinates = Console.ReadLine();
-                x = int.Parse(coordinates.Substring(0, 1));
-                y = int.Parse(coordinates.Substring(2, 1));
-
-                while ((x < 0 || x > (gameBoardSize - 1)) && (y < 0 || y > (gameBoardSize - 1)))
-                {
-                    Console.WriteLine("Invalid move !");
-                    Console.WriteLine("Please enter coordinates: ");
-                    coordinates = Console.ReadLine();
-                    x = int.Parse(coordinates.Substring(0, 1));
-                    y = int.Parse(coordinates.Substring(2, 1));
-                }
+                Console.WriteLine("Please enter valid coordinates: ");
+                mineCoordinates = Console.ReadLine().Split(' ', ',');
+                x = int.Parse(mineCoordinates[0]);
+                y = int.Parse(mineCoordinates[1]);
             }
 
             ExplosionHandler.HitMine(gameBoard, x, y);
 
             Console.WriteLine(gameBoard);
-            //PrintGameBoard(gameBoard);
             if (!IsGameOver(gameBoard))
             {
-                GameEngine.PlayerTurn(gameBoard, countPlayed);
+                GameEngine.PlayGame(gameBoard);
             }
             else
             {
-                Console.WriteLine("Game over. Detonated mines: " + countPlayed);
+                Console.WriteLine("Game over. Detonated mines: " + GameEngine.turnsCounter);
             }
         }
 
@@ -87,7 +71,7 @@ namespace BattleField
 
         public static int ReadBoardSize()
         {
-            Console.Write("Welcome to \"Battle Field game.\" Enter battle field size: N = ");
+            Console.Write("Welcome to \"Battle Field game.\" Enter battlefield size: N = ");
             int gameBoardSize = Convert.ToInt32(Console.ReadLine());
             while (gameBoardSize < 1 || gameBoardSize > 10)
             {
