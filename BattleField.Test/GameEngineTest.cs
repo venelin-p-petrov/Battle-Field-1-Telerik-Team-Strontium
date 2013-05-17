@@ -1,17 +1,16 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using BattleField;
-using System.Text;
-
-namespace BattleField.Test
+﻿namespace BattleField.Test
 {
+    using System;
+    using System.Text;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     [TestClass]
     public class GameEngineTest
     {
         [TestMethod]
         public void IsGameOverTest_IfBombAtTopLeft()
         {
-            var random = new Random();
+            Random random = new Random();
             for (int i = 1; i <= 10; i++)
             {
                 int gameFieldSize = i;
@@ -27,7 +26,7 @@ namespace BattleField.Test
         [TestMethod]
         public void IsGameOverTest_IfBombAtTopRight()
         {
-            var random = new Random();
+            Random random = new Random();
             for (int i = 1; i <= 10; i++)
             {
                 int gameFieldSize = i;
@@ -43,7 +42,7 @@ namespace BattleField.Test
         [TestMethod]
         public void IsGameOverTest_IfBombAtBottomLeft()
         {
-            var random = new Random();
+            Random random = new Random();
             for (int i = 1; i <= 10; i++)
             {
                 int gameFieldSize = i;
@@ -59,7 +58,7 @@ namespace BattleField.Test
         [TestMethod]
         public void IsGameOverTest_IfBombAtBottomRight()
         {
-            var random = new Random();
+            Random random = new Random();
             for (int i = 1; i <= 10; i++)
             {
                 int gameFieldSize = i;
@@ -165,18 +164,18 @@ namespace BattleField.Test
             testConsole.Input = "1 1";
             StringBuilder expectedOutput = new StringBuilder();
             Board board = new Board(3);
-            string[,] initialBoard = new string[3, 3]
-            {
-                {"-", "-", "-"},
-                {"-", "1", "-"},
-                {"-", "-", "-"}
-            };
-            string[,] expectedBoard = new string[3, 3]
-            {
-                {"X", "-", "X"},
-                {"-", "X", "-"},
-                {"X", "-", "X"}
-            };
+            var initialBoard = new string[3,3]
+                {
+                    {"-", "-", "-"},
+                    {"-", "1", "-"},
+                    {"-", "-", "-"}
+                };
+            var expectedBoard = new string[3,3]
+                {
+                    {"X", "-", "X"},
+                    {"-", "X", "-"},
+                    {"X", "-", "X"}
+                };
             SetBoard(board, initialBoard);
             expectedOutput.AppendLine("Please enter coordinates: ");
             expectedOutput.AppendLine("  0 1 2");
@@ -200,18 +199,18 @@ namespace BattleField.Test
             testConsole.Input = "1 1\n1 1\n0 1";
             StringBuilder expectedOutput = new StringBuilder();
             Board board = new Board(3);
-            string[,] initialBoard = new string[3, 3]
-            {
-                {"-", "1", "-"},
-                {"-", "1", "-"},
-                {"-", "-", "-"}
-            };
-            string[,] expectedBoard = new string[3, 3]
-            {
-                {"X", "X", "X"},
-                {"X", "X", "X"},
-                {"X", "-", "X"}
-            };
+            var initialBoard = new string[3,3]
+                {
+                    {"-", "1", "-"},
+                    {"-", "1", "-"},
+                    {"-", "-", "-"}
+                };
+            var expectedBoard = new string[3,3]
+                {
+                    {"X", "X", "X"},
+                    {"X", "X", "X"},
+                    {"X", "-", "X"}
+                };
             SetBoard(board, initialBoard);
             expectedOutput.AppendLine("Please enter coordinates: ");
             expectedOutput.AppendLine("  0 1 2");
@@ -286,13 +285,13 @@ namespace BattleField.Test
 
         private class TestConsoleUI : IConsole
         {
-            public StringBuilder Output { get; set; }
-            public string Input { get; set; }
-
             public TestConsoleUI()
             {
-                this.Output = new StringBuilder();
+                Output = new StringBuilder();
             }
+
+            public StringBuilder Output { get; set; }
+            public string Input { get; set; }
 
             public void Write(string message)
             {
@@ -313,7 +312,7 @@ namespace BattleField.Test
                 }
 
                 string result = Input.Substring(0, endOfLineIndex);
-                this.Input = Input.Remove(0, endOfLineIndex + 1);
+                Input = Input.Remove(0, endOfLineIndex + 1);
 
                 return result;
             }

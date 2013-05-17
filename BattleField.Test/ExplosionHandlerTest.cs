@@ -1,9 +1,7 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using BattleField;
-
-namespace BattleField.Test
+﻿namespace BattleField.Test
 {
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     [TestClass]
     public class ExplosionHandlerTest
     {
@@ -12,74 +10,74 @@ namespace BattleField.Test
         {
             const int testMatrixSize = 3;
 
-            string[,] initialBoard1 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "-"},
-                {"-", "1", "-"},
-                {"-", "-", "-"}
-            };
-            string[,] expectedBoard1 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"X", "-", "X"},
-                {"-", "X", "-"},
-                {"X", "-", "X"}
-            };
+            var initialBoard1 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "-"},
+                    {"-", "1", "-"},
+                    {"-", "-", "-"}
+                };
+            var expectedBoard1 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"X", "-", "X"},
+                    {"-", "X", "-"},
+                    {"X", "-", "X"}
+                };
             Assert.IsTrue(CheckForEqualOutput(testMatrixSize, 1, 1, initialBoard1, expectedBoard1));
 
-            string[,] initialBoard2 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "1"},
-                {"-", "-", "-"},
-                {"-", "-", "-"}
-            };
-            string[,] expectedBoard2 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "X"},
-                {"-", "X", "-"},
-                {"-", "-", "-"}
-            };
+            var initialBoard2 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "1"},
+                    {"-", "-", "-"},
+                    {"-", "-", "-"}
+                };
+            var expectedBoard2 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "X"},
+                    {"-", "X", "-"},
+                    {"-", "-", "-"}
+                };
             Assert.IsTrue(CheckForEqualOutput(testMatrixSize, 0, 2, initialBoard2, expectedBoard2));
 
-            string[,] initialBoard3 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"1", "-", "-"},
-                {"-", "-", "-"},
-                {"-", "-", "-"}
-            };
-            string[,] expectedBoard3 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"X", "-", "-"},
-                {"-", "X", "-"},
-                {"-", "-", "-"}
-            };
+            var initialBoard3 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"1", "-", "-"},
+                    {"-", "-", "-"},
+                    {"-", "-", "-"}
+                };
+            var expectedBoard3 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"X", "-", "-"},
+                    {"-", "X", "-"},
+                    {"-", "-", "-"}
+                };
             Assert.IsTrue(CheckForEqualOutput(testMatrixSize, 0, 0, initialBoard3, expectedBoard3));
 
-            string[,] initialBoard4 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "-"},
-                {"-", "-", "-"},
-                {"1", "-", "-"}
-            };
-            string[,] expectedBoard4 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "-"},
-                {"-", "X", "-"},
-                {"X", "-", "-"}
-            };
+            var initialBoard4 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "-"},
+                    {"-", "-", "-"},
+                    {"1", "-", "-"}
+                };
+            var expectedBoard4 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "-"},
+                    {"-", "X", "-"},
+                    {"X", "-", "-"}
+                };
             Assert.IsTrue(CheckForEqualOutput(testMatrixSize, 2, 0, initialBoard4, expectedBoard4));
 
-            string[,] initialBoard5 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "-"},
-                {"-", "-", "-"},
-                {"-", "-", "1"}
-            };
-            string[,] expectedBoard5 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "-"},
-                {"-", "X", "-"},
-                {"-", "-", "X"}
-            };
+            var initialBoard5 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "-"},
+                    {"-", "-", "-"},
+                    {"-", "-", "1"}
+                };
+            var expectedBoard5 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "-"},
+                    {"-", "X", "-"},
+                    {"-", "-", "X"}
+                };
             Assert.IsTrue(CheckForEqualOutput(testMatrixSize, 2, 2, initialBoard5, expectedBoard5));
         }
 
@@ -88,74 +86,74 @@ namespace BattleField.Test
         {
             const int testMatrixSize = 3;
 
-            string[,] initialBoard1 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "-"},
-                {"-", "2", "-"},
-                {"-", "-", "-"}
-            };
-            string[,] expectedBoard1 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"X", "X", "X"},
-                {"X", "X", "X"},
-                {"X", "X", "X"}
-            };
+            var initialBoard1 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "-"},
+                    {"-", "2", "-"},
+                    {"-", "-", "-"}
+                };
+            var expectedBoard1 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"X", "X", "X"},
+                    {"X", "X", "X"},
+                    {"X", "X", "X"}
+                };
             Assert.IsTrue(CheckForEqualOutput(testMatrixSize, 1, 1, initialBoard1, expectedBoard1));
 
-            string[,] initialBoard2 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "2"},
-                {"-", "-", "-"},
-                {"-", "-", "-"}
-            };
-            string[,] expectedBoard2 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "X", "X"},
-                {"-", "X", "X"},
-                {"-", "-", "-"}
-            };
+            var initialBoard2 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "2"},
+                    {"-", "-", "-"},
+                    {"-", "-", "-"}
+                };
+            var expectedBoard2 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "X", "X"},
+                    {"-", "X", "X"},
+                    {"-", "-", "-"}
+                };
             Assert.IsTrue(CheckForEqualOutput(testMatrixSize, 0, 2, initialBoard2, expectedBoard2));
 
-            string[,] initialBoard3 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"2", "-", "-"},
-                {"-", "-", "-"},
-                {"-", "-", "-"}
-            };
-            string[,] expectedBoard3 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"X", "X", "-"},
-                {"X", "X", "-"},
-                {"-", "-", "-"}
-            };
+            var initialBoard3 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"2", "-", "-"},
+                    {"-", "-", "-"},
+                    {"-", "-", "-"}
+                };
+            var expectedBoard3 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"X", "X", "-"},
+                    {"X", "X", "-"},
+                    {"-", "-", "-"}
+                };
             Assert.IsTrue(CheckForEqualOutput(testMatrixSize, 0, 0, initialBoard3, expectedBoard3));
 
-            string[,] initialBoard4 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "-"},
-                {"-", "-", "-"},
-                {"2", "-", "-"}
-            };
-            string[,] expectedBoard4 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "-"},
-                {"X", "X", "-"},
-                {"X", "X", "-"}
-            };
+            var initialBoard4 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "-"},
+                    {"-", "-", "-"},
+                    {"2", "-", "-"}
+                };
+            var expectedBoard4 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "-"},
+                    {"X", "X", "-"},
+                    {"X", "X", "-"}
+                };
             Assert.IsTrue(CheckForEqualOutput(testMatrixSize, 2, 0, initialBoard4, expectedBoard4));
 
-            string[,] initialBoard5 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "-"},
-                {"-", "-", "-"},
-                {"-", "-", "2"}
-            };
-            string[,] expectedBoard5 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "-"},
-                {"-", "X", "X"},
-                {"-", "X", "X"}
-            };
+            var initialBoard5 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "-"},
+                    {"-", "-", "-"},
+                    {"-", "-", "2"}
+                };
+            var expectedBoard5 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "-"},
+                    {"-", "X", "X"},
+                    {"-", "X", "X"}
+                };
             Assert.IsTrue(CheckForEqualOutput(testMatrixSize, 2, 2, initialBoard5, expectedBoard5));
         }
 
@@ -164,94 +162,94 @@ namespace BattleField.Test
         {
             const int testMatrixSize = 5;
 
-            string[,] initialBoard1 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "3", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"}
-            };
-            string[,] expectedBoard1 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "X", "-", "-"},
-                {"-", "X", "X", "X", "-"},
-                {"X", "X", "X", "X", "X"},
-                {"-", "X", "X", "X", "-"},
-                {"-", "-", "X", "-", "-"}
-            };
+            var initialBoard1 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "3", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"}
+                };
+            var expectedBoard1 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "X", "-", "-"},
+                    {"-", "X", "X", "X", "-"},
+                    {"X", "X", "X", "X", "X"},
+                    {"-", "X", "X", "X", "-"},
+                    {"-", "-", "X", "-", "-"}
+                };
             Assert.IsTrue(CheckForEqualOutput(testMatrixSize, 2, 2, initialBoard1, expectedBoard1));
 
-            string[,] initialBoard2 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"3", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"}
-            };
-            string[,] expectedBoard2 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"X", "X", "X", "-", "-"},
-                {"X", "X", "-", "-", "-"},
-                {"X", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"}
-            };
+            var initialBoard2 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"3", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"}
+                };
+            var expectedBoard2 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"X", "X", "X", "-", "-"},
+                    {"X", "X", "-", "-", "-"},
+                    {"X", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"}
+                };
             Assert.IsTrue(CheckForEqualOutput(testMatrixSize, 0, 0, initialBoard2, expectedBoard2));
 
-            string[,] initialBoard3 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "3"}
-            };
-            string[,] expectedBoard3 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "X"},
-                {"-", "-", "-", "X", "X"},
-                {"-", "-", "X", "X", "X"}
-            };
+            var initialBoard3 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "3"}
+                };
+            var expectedBoard3 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "X"},
+                    {"-", "-", "-", "X", "X"},
+                    {"-", "-", "X", "X", "X"}
+                };
             Assert.IsTrue(CheckForEqualOutput(testMatrixSize, 4, 4, initialBoard3, expectedBoard3));
 
-            string[,] initialBoard4 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "3", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"}
-            };
-            string[,] expectedBoard4 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "-", "-", "-"},
-                {"-", "X", "-", "-", "-"},
-                {"X", "X", "X", "-", "-"},
-                {"X", "X", "X", "X", "-"},
-                {"X", "X", "X", "-", "-"}
-            };
+            var initialBoard4 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "3", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"}
+                };
+            var expectedBoard4 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "X", "-", "-", "-"},
+                    {"X", "X", "X", "-", "-"},
+                    {"X", "X", "X", "X", "-"},
+                    {"X", "X", "X", "-", "-"}
+                };
             Assert.IsTrue(CheckForEqualOutput(testMatrixSize, 3, 1, initialBoard4, expectedBoard4));
 
-            string[,] initialBoard5 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "3", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"}
-            };
-            string[,] expectedBoard5 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "X", "X", "X"},
-                {"-", "X", "X", "X", "X"},
-                {"-", "-", "X", "X", "X"},
-                {"-", "-", "-", "X", "-"},
-                {"-", "-", "-", "-", "-"}
-            };
+            var initialBoard5 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "3", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"}
+                };
+            var expectedBoard5 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "X", "X", "X"},
+                    {"-", "X", "X", "X", "X"},
+                    {"-", "-", "X", "X", "X"},
+                    {"-", "-", "-", "X", "-"},
+                    {"-", "-", "-", "-", "-"}
+                };
             Assert.IsTrue(CheckForEqualOutput(testMatrixSize, 1, 3, initialBoard5, expectedBoard5));
         }
 
@@ -260,94 +258,94 @@ namespace BattleField.Test
         {
             const int testMatrixSize = 5;
 
-            string[,] initialBoard1 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "4", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"}
-            };
-            string[,] expectedBoard1 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "X", "X", "X", "-"},
-                {"X", "X", "X", "X", "X"},
-                {"X", "X", "X", "X", "X"},
-                {"X", "X", "X", "X", "X"},
-                {"-", "X", "X", "X", "-"}
-            };
+            var initialBoard1 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "4", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"}
+                };
+            var expectedBoard1 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "X", "X", "X", "-"},
+                    {"X", "X", "X", "X", "X"},
+                    {"X", "X", "X", "X", "X"},
+                    {"X", "X", "X", "X", "X"},
+                    {"-", "X", "X", "X", "-"}
+                };
             Assert.IsTrue(CheckForEqualOutput(testMatrixSize, 2, 2, initialBoard1, expectedBoard1));
 
-            string[,] initialBoard2 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"4", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"}
-            };
-            string[,] expectedBoard2 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"X", "X", "X", "-", "-"},
-                {"X", "X", "X", "-", "-"},
-                {"X", "X", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"}
-            };
+            var initialBoard2 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"4", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"}
+                };
+            var expectedBoard2 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"X", "X", "X", "-", "-"},
+                    {"X", "X", "X", "-", "-"},
+                    {"X", "X", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"}
+                };
             Assert.IsTrue(CheckForEqualOutput(testMatrixSize, 0, 0, initialBoard2, expectedBoard2));
 
-            string[,] initialBoard3 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "4"}
-            };
-            string[,] expectedBoard3 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "X", "X"},
-                {"-", "-", "X", "X", "X"},
-                {"-", "-", "X", "X", "X"}
-            };
+            var initialBoard3 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "4"}
+                };
+            var expectedBoard3 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "X", "X"},
+                    {"-", "-", "X", "X", "X"},
+                    {"-", "-", "X", "X", "X"}
+                };
             Assert.IsTrue(CheckForEqualOutput(testMatrixSize, 4, 4, initialBoard3, expectedBoard3));
 
-            string[,] initialBoard4 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "4", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"}
-            };
-            string[,] expectedBoard4 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "-", "-", "-"},
-                {"X", "X", "X", "-", "-"},
-                {"X", "X", "X", "X", "-"},
-                {"X", "X", "X", "X", "-"},
-                {"X", "X", "X", "X", "-"}
-            };
+            var initialBoard4 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "4", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"}
+                };
+            var expectedBoard4 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "-", "-", "-"},
+                    {"X", "X", "X", "-", "-"},
+                    {"X", "X", "X", "X", "-"},
+                    {"X", "X", "X", "X", "-"},
+                    {"X", "X", "X", "X", "-"}
+                };
             Assert.IsTrue(CheckForEqualOutput(testMatrixSize, 3, 1, initialBoard4, expectedBoard4));
 
-            string[,] initialBoard5 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "4", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"}
-            };
-            string[,] expectedBoard5 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "X", "X", "X", "X"},
-                {"-", "X", "X", "X", "X"},
-                {"-", "X", "X", "X", "X"},
-                {"-", "-", "X", "X", "X"},
-                {"-", "-", "-", "-", "-"}
-            };
+            var initialBoard5 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "4", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"}
+                };
+            var expectedBoard5 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "X", "X", "X", "X"},
+                    {"-", "X", "X", "X", "X"},
+                    {"-", "X", "X", "X", "X"},
+                    {"-", "-", "X", "X", "X"},
+                    {"-", "-", "-", "-", "-"}
+                };
             Assert.IsTrue(CheckForEqualOutput(testMatrixSize, 1, 3, initialBoard5, expectedBoard5));
         }
 
@@ -356,94 +354,94 @@ namespace BattleField.Test
         {
             const int testMatrixSize = 5;
 
-            string[,] initialBoard1 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "5", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"}
-            };
-            string[,] expectedBoard1 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"X", "X", "X", "X", "X"},
-                {"X", "X", "X", "X", "X"},
-                {"X", "X", "X", "X", "X"},
-                {"X", "X", "X", "X", "X"},
-                {"X", "X", "X", "X", "X"}
-            };
+            var initialBoard1 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "5", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"}
+                };
+            var expectedBoard1 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"X", "X", "X", "X", "X"},
+                    {"X", "X", "X", "X", "X"},
+                    {"X", "X", "X", "X", "X"},
+                    {"X", "X", "X", "X", "X"},
+                    {"X", "X", "X", "X", "X"}
+                };
             Assert.IsTrue(CheckForEqualOutput(testMatrixSize, 2, 2, initialBoard1, expectedBoard1));
 
-            string[,] initialBoard2 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"5", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"}
-            };
-            string[,] expectedBoard2 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"X", "X", "X", "-", "-"},
-                {"X", "X", "X", "-", "-"},
-                {"X", "X", "X", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"}
-            };
+            var initialBoard2 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"5", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"}
+                };
+            var expectedBoard2 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"X", "X", "X", "-", "-"},
+                    {"X", "X", "X", "-", "-"},
+                    {"X", "X", "X", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"}
+                };
             Assert.IsTrue(CheckForEqualOutput(testMatrixSize, 0, 0, initialBoard2, expectedBoard2));
 
-            string[,] initialBoard3 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "5"}
-            };
-            string[,] expectedBoard3 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "X", "X", "X"},
-                {"-", "-", "X", "X", "X"},
-                {"-", "-", "X", "X", "X"}
-            };
+            var initialBoard3 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "5"}
+                };
+            var expectedBoard3 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "X", "X", "X"},
+                    {"-", "-", "X", "X", "X"},
+                    {"-", "-", "X", "X", "X"}
+                };
             Assert.IsTrue(CheckForEqualOutput(testMatrixSize, 4, 4, initialBoard3, expectedBoard3));
 
-            string[,] initialBoard4 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "5", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"}
-            };
-            string[,] expectedBoard4 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "-", "-", "-"},
-                {"X", "X", "X", "X", "-"},
-                {"X", "X", "X", "X", "-"},
-                {"X", "X", "X", "X", "-"},
-                {"X", "X", "X", "X", "-"}
-            };
+            var initialBoard4 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "5", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"}
+                };
+            var expectedBoard4 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "-", "-", "-"},
+                    {"X", "X", "X", "X", "-"},
+                    {"X", "X", "X", "X", "-"},
+                    {"X", "X", "X", "X", "-"},
+                    {"X", "X", "X", "X", "-"}
+                };
             Assert.IsTrue(CheckForEqualOutput(testMatrixSize, 3, 1, initialBoard4, expectedBoard4));
 
-            string[,] initialBoard5 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "5", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-"}
-            };
-            string[,] expectedBoard5 = new string[testMatrixSize, testMatrixSize]
-            {
-                {"-", "X", "X", "X", "X"},
-                {"-", "X", "X", "X", "X"},
-                {"-", "X", "X", "X", "X"},
-                {"-", "X", "X", "X", "X"},
-                {"-", "-", "-", "-", "-"}
-            };
+            var initialBoard5 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "5", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"},
+                    {"-", "-", "-", "-", "-"}
+                };
+            var expectedBoard5 = new string[testMatrixSize,testMatrixSize]
+                {
+                    {"-", "X", "X", "X", "X"},
+                    {"-", "X", "X", "X", "X"},
+                    {"-", "X", "X", "X", "X"},
+                    {"-", "X", "X", "X", "X"},
+                    {"-", "-", "-", "-", "-"}
+                };
             Assert.IsTrue(CheckForEqualOutput(testMatrixSize, 1, 3, initialBoard5, expectedBoard5));
         }
 
@@ -458,7 +456,8 @@ namespace BattleField.Test
             }
         }
 
-        private static bool CheckForEqualOutput(int gameFieldSize, int x, int y, string[,] initialBoard, string[,] expectedBoard)
+        private static bool CheckForEqualOutput(int gameFieldSize, int x, int y, string[,] initialBoard,
+                                                string[,] expectedBoard)
         {
             bool boardsAreEqual = true;
             Board board = new Board(gameFieldSize);
