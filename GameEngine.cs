@@ -29,8 +29,8 @@
                 {
                     EnterCoordinates(out row, out col, userInput);
 
-                    bool isInField = (row >= 0 && row < gameBoardSize - 1) &&
-                       (col >= 0 && col < gameBoardSize - 1);
+                    bool isInField = (row >= 0 && row < gameBoardSize) &&
+                       (col >= 0 && col < gameBoardSize);
 
                     isValidCell = isInField &&
                         gameBoard.GameBoard[row, col] != "-" &&
