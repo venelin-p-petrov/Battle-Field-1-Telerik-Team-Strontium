@@ -196,7 +196,7 @@
         public void PlayGameTest_SuccessfulGamePlayedTryInvalidMove()
         {
             TestConsoleUI testConsole = new TestConsoleUI();
-            testConsole.Input = "1 1\n1 1\n0 1";
+            testConsole.Input = "-1 0\n1 1\n1 1\n0 1";
             StringBuilder expectedOutput = new StringBuilder();
             Board board = new Board(3);
             var initialBoard = new string[3,3]
@@ -212,6 +212,8 @@
                     {"X", "-", "X"}
                 };
             SetBoard(board, initialBoard);
+            expectedOutput.AppendLine("Please enter coordinates: ");
+            expectedOutput.AppendLine("Invalid move!");
             expectedOutput.AppendLine("Please enter coordinates: ");
             expectedOutput.AppendLine("  0 1 2");
             expectedOutput.AppendLine("  -----");
