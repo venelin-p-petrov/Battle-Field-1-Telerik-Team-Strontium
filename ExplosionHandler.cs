@@ -2,190 +2,229 @@
 {
     using System;
 
+    /// <summary>
+    /// Class handling the exploding of mines
+    /// </summary>
     public class ExplosionHandler
     {
-        public static void HitMine(Board gameBoard, int x, int y)
+        /// <summary>
+        /// Determines what mine has been hit.
+        /// </summary>
+        /// <param name="gameBoard">the game board it is played on</param>
+        /// <param name="row">the row coordinate of the field</param>
+        /// <param name="col">the col coordinate of the field</param>
+        public static void HitMine(Board gameBoard, int row, int col)
         {
-            int mineSize = Convert.ToInt32(gameBoard.GameBoard[x, y]);
+            int mineSize = Convert.ToInt32(gameBoard.GameBoard[row, col]);
 
             switch (mineSize)
             {
                 case 1:
-                    HitMineOfSizeOne(x, y, gameBoard);
+                    HitMineOfSizeOne(gameBoard, row, col);
                     break;
                 case 2:
-                    HitMineOfSizeTwo(x, y, gameBoard);
+                    HitMineOfSizeTwo(gameBoard, row, col);
                     break;
                 case 3:
-                    HitMineOfSizeThree(x, y, gameBoard);
+                    HitMineOfSizeThree(gameBoard, row, col);
                     break;
                 case 4:
-                    HitMineOfSizeFour(x, y, gameBoard);
+                    HitMineOfSizeFour(gameBoard, row, col);
                     break;
                 case 5:
-                    HitMineOfSizeFive(x, y, gameBoard);
+                    HitMineOfSizeFive(gameBoard, row, col);
                     break;
             }
         }
 
-        private static void HitMineOfSizeOne(int x, int y, Board gameBoard)
+        /// <summary>
+        /// Changes the game board according to the hit of mine with size one.
+        /// </summary>
+        /// <param name="gameBoard">the game board it is played on</param>
+        /// <param name="row">the row coordinate of the field</param>
+        /// <param name="col">the col coordinate of the field</param>
+        private static void HitMineOfSizeOne(Board gameBoard, int row, int col)
         {
             int rows = gameBoard.Rows;
             int cols = gameBoard.Cols;
 
-            gameBoard.GameBoard[x, y] = "X";
+            gameBoard.GameBoard[row, col] = "X";
 
-            if (x - 1 >= 0 && y - 1 >= 0)
+            if (row - 1 >= 0 && col - 1 >= 0)
             {
-                gameBoard.GameBoard[x - 1, y - 1] = "X";
+                gameBoard.GameBoard[row - 1, col - 1] = "X";
             }
 
-            if (x - 1 >= 0 && y + 1 < cols)
+            if (row - 1 >= 0 && col + 1 < cols)
             {
-                gameBoard.GameBoard[x - 1, y + 1] = "X";
+                gameBoard.GameBoard[row - 1, col + 1] = "X";
             }
 
-            if (x + 1 < rows && y + 1 < cols)
+            if (row + 1 < rows && col + 1 < cols)
             {
-                gameBoard.GameBoard[x + 1, y + 1] = "X";
+                gameBoard.GameBoard[row + 1, col + 1] = "X";
             }
 
-            if (x + 1 < rows && y - 1 >= 0)
+            if (row + 1 < rows && col - 1 >= 0)
             {
-                gameBoard.GameBoard[x + 1, y - 1] = "X";
+                gameBoard.GameBoard[row + 1, col - 1] = "X";
             }
         }
 
-        private static void HitMineOfSizeTwo(int x, int y, Board gameBoard)
+        /// <summary>
+        /// Changes the game board according to the hit of mine with size two.
+        /// </summary>
+        /// <param name="gameBoard">the game board it is played on</param>
+        /// <param name="row">the row coordinate of the field</param>
+        /// <param name="col">the col coordinate of the field</param>
+        private static void HitMineOfSizeTwo(Board gameBoard, int row, int col)
         {
             int rows = gameBoard.Rows;
             int cols = gameBoard.Cols;
 
-            gameBoard.GameBoard[x, y] = "X";
+            gameBoard.GameBoard[row, col] = "X";
 
-            HitMineOfSizeOne(x, y, gameBoard);
-            if (y - 1 >= 0)
+            HitMineOfSizeOne(gameBoard, row, col);
+            if (col - 1 >= 0)
             {
-                gameBoard.GameBoard[x, y - 1] = "X";
+                gameBoard.GameBoard[row, col - 1] = "X";
             }
 
-            if (y + 1 < cols)
+            if (col + 1 < cols)
             {
-                gameBoard.GameBoard[x, y + 1] = "X";
+                gameBoard.GameBoard[row, col + 1] = "X";
             }
 
-            if (x - 1 >= 0)
+            if (row - 1 >= 0)
             {
-                gameBoard.GameBoard[x - 1, y] = "X";
+                gameBoard.GameBoard[row - 1, col] = "X";
             }
 
-            if (x + 1 < rows)
+            if (row + 1 < rows)
             {
-                gameBoard.GameBoard[x + 1, y] = "X";
+                gameBoard.GameBoard[row + 1, col] = "X";
             }
         }
 
-        private static void HitMineOfSizeThree(int x, int y, Board gameBoard)
+        /// <summary>
+        /// Changes the game board according to the hit of mine with size three.
+        /// </summary>
+        /// <param name="gameBoard">the game board it is played on</param>
+        /// <param name="row">the row coordinate of the field</param>
+        /// <param name="col">the col coordinate of the field</param>
+        private static void HitMineOfSizeThree(Board gameBoard, int row, int col)
         {
             int rows = gameBoard.Rows;
             int cols = gameBoard.Cols;
 
-            HitMineOfSizeTwo(x, y, gameBoard);
+            HitMineOfSizeTwo(gameBoard, row, col);
 
-            if (x - 2 >= 0)
+            if (row - 2 >= 0)
             {
-                gameBoard.GameBoard[x - 2, y] = "X";
+                gameBoard.GameBoard[row - 2, col] = "X";
             }
 
-            if (x + 2 < rows)
+            if (row + 2 < rows)
             {
-                gameBoard.GameBoard[x + 2, y] = "X";
+                gameBoard.GameBoard[row + 2, col] = "X";
             }
 
-            if (y - 2 >= 0)
+            if (col - 2 >= 0)
             {
-                gameBoard.GameBoard[x, y - 2] = "X";
+                gameBoard.GameBoard[row, col - 2] = "X";
             }
 
-            if (y + 2 < cols)
+            if (col + 2 < cols)
             {
-                gameBoard.GameBoard[x, y + 2] = "X";
+                gameBoard.GameBoard[row, col + 2] = "X";
             }
         }
 
-        private static void HitMineOfSizeFour(int x, int y, Board gameBoard)
+        /// <summary>
+        /// Changes the game board according to the hit of mine with size four.
+        /// </summary>
+        /// <param name="gameBoard">the game board it is played on</param>
+        /// <param name="row">the row coordinate of the field</param>
+        /// <param name="col">the col coordinate of the field</param>
+        private static void HitMineOfSizeFour(Board gameBoard, int row, int col)
         {
             int rows = gameBoard.Rows;
             int cols = gameBoard.Cols;
 
-            HitMineOfSizeThree(x, y, gameBoard);
+            HitMineOfSizeThree(gameBoard, row, col);
 
-            if (x - 2 >= 0 && y - 1 >= 0)
+            if (row - 2 >= 0 && col - 1 >= 0)
             {
-                gameBoard.GameBoard[x - 2, y - 1] = "X";
+                gameBoard.GameBoard[row - 2, col - 1] = "X";
             }
 
-            if (x - 2 >= 0 && y + 1 < cols)
+            if (row - 2 >= 0 && col + 1 < cols)
             {
-                gameBoard.GameBoard[x - 2, y + 1] = "X";
+                gameBoard.GameBoard[row - 2, col + 1] = "X";
             }
 
-            if (x - 1 >= 0  && y + 2 < cols)
+            if (row - 1 >= 0  && col + 2 < cols)
             {
-                gameBoard.GameBoard[x - 1, y + 2] = "X";
+                gameBoard.GameBoard[row - 1, col + 2] = "X";
             }
 
-            if (x + 1 < rows && y + 2 < cols)
+            if (row + 1 < rows && col + 2 < cols)
             {
-                gameBoard.GameBoard[x + 1, y + 2] = "X";
+                gameBoard.GameBoard[row + 1, col + 2] = "X";
             }            
 
-            if (x + 2 < rows && y + 1 < cols)
+            if (row + 2 < rows && col + 1 < cols)
             {
-                gameBoard.GameBoard[x + 2, y + 1] = "X";
+                gameBoard.GameBoard[row + 2, col + 1] = "X";
             }
 
-            if (x + 2 < rows && y - 1 >= 0)
+            if (row + 2 < rows && col - 1 >= 0)
             {
-                gameBoard.GameBoard[x + 2, y - 1] = "X";
+                gameBoard.GameBoard[row + 2, col - 1] = "X";
             }
 
-            if (x - 1 >= 0 && y - 2 >= 0)
+            if (row - 1 >= 0 && col - 2 >= 0)
             {
-                gameBoard.GameBoard[x - 1, y - 2] = "X";
+                gameBoard.GameBoard[row - 1, col - 2] = "X";
             }
 
-            if (x + 1 < rows && y - 2 >= 0)
+            if (row + 1 < rows && col - 2 >= 0)
             {
-                gameBoard.GameBoard[x + 1, y - 2] = "X";
+                gameBoard.GameBoard[row + 1, col - 2] = "X";
             }            
         }
 
-        private static void HitMineOfSizeFive(int x, int y, Board gameBoard)
+        /// <summary>
+        /// Changes the game board according to the hit of mine with size five.
+        /// </summary>
+        /// <param name="gameBoard">the game board it is played on</param>
+        /// <param name="row">the row coordinate of the field</param>
+        /// <param name="col">the col coordinate of the field</param>
+        private static void HitMineOfSizeFive(Board gameBoard, int row, int col)
         {
             int rows = gameBoard.Rows;
             int cols = gameBoard.Cols;
 
-            HitMineOfSizeFour(x, y, gameBoard);
+            HitMineOfSizeFour(gameBoard, row, col);
 
-            if (x - 2 >= 0 && y - 2 >= 0)
+            if (row - 2 >= 0 && col - 2 >= 0)
             {
-                gameBoard.GameBoard[x - 2, y - 2] = "X";
+                gameBoard.GameBoard[row - 2, col - 2] = "X";
             }
 
-            if (x - 2 >= 0 && y + 2 < cols)
+            if (row - 2 >= 0 && col + 2 < cols)
             {
-                gameBoard.GameBoard[x - 2, y + 2] = "X";
+                gameBoard.GameBoard[row - 2, col + 2] = "X";
             }
 
-            if (x + 2 < rows && y + 2 < cols)
+            if (row + 2 < rows && col + 2 < cols)
             {
-                gameBoard.GameBoard[x + 2, y + 2] = "X";
+                gameBoard.GameBoard[row + 2, col + 2] = "X";
             }
 
-            if (x + 2 < rows && y - 2 >= 0)
+            if (row + 2 < rows && col - 2 >= 0)
             {
-                gameBoard.GameBoard[x + 2, y - 2] = "X";
+                gameBoard.GameBoard[row + 2, col - 2] = "X";
             }            
         }
     }

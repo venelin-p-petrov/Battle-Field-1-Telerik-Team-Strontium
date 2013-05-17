@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace BattleField
+﻿namespace BattleField
 {
+    using System;
+    using System.Linq;
+
+    /// <summary>
+    /// Console abstarction needed for mocking purposes.
+    /// </summary>
     class ConsoleUI : IConsole
     {
         public void Write(string message)

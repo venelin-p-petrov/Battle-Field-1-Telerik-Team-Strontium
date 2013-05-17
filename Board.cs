@@ -3,8 +3,15 @@
     using System;
     using System.Text;
 
+    /// <summary>
+    /// Class representing the game board.
+    /// </summary>
     public class Board
     {
+        /// <summary>
+        /// Constructor creating a game board by given size.
+        /// </summary>
+        /// <param name="gameBoardSize">size of the game board</param>
         public Board(int gameBoardSize)
         {
             if (gameBoardSize < 1 || gameBoardSize > 10)
@@ -17,24 +24,37 @@
             this.GameBoard = this.GenerateGameBoard();
         }
 
+        /// <summary>
+        /// Property containing the rows of the game board.
+        /// </summary>
         public int Rows
         {
             get;
             protected set;
         }
 
+        /// <summary>
+        /// Property containig the rows of the game board.
+        /// </summary>
         public int Cols
         {
             get;
             protected set;
         }
 
+        /// <summary>
+        /// Property containing the game board.
+        /// </summary>
         public string[,] GameBoard
         {
             get;
             protected set;
         }
 
+        /// <summary>
+        /// ToString method creating the presentation of the board fit for screen.
+        /// </summary>
+        /// <returns>String representation of the game board</returns>
         public override string ToString()
         {
             StringBuilder result = new StringBuilder();
@@ -79,6 +99,10 @@
             return result.ToString();
         }
 
+        /// <summary>
+        /// Creates the game board initial state.
+        /// </summary>
+        /// <returns>created gamme board</returns>
         private string[,] GenerateGameBoard()
         {
             string[,] gameBoard = new string[this.Rows, this.Cols];
@@ -99,6 +123,10 @@
             return gameBoard;
         }
 
+        /// <summary>
+        /// Add bombs at random positions to the game bombs.
+        /// </summary>
+        /// <param name="gameBoard">the game board to add to</param>
         private void AddBombs(string[,] gameBoard)
         {
             int gameBoardSize = this.Rows;
